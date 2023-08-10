@@ -1,7 +1,7 @@
 package com.secdavid.tpmonitoring.services;
 
 import com.secdavid.tpmonitoring.builder.ProcessBuilder;
-import com.secdavid.tpmonitoring.model.MasterData;
+import com.secdavid.tpmonitoring.enums.Category;
 import com.secdavid.tpmonitoring.model.TpProcess;
 import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -20,13 +20,30 @@ public class TPProcessService {
     @PostConstruct
     public void init(){
         this.processes = new ArrayList<>();
-        TpProcess process = new TpProcess("17.1.E - Frequency Containment Reserve (FCR)");
-        process.setMasterData(new MasterData("A83", CONTROL_AREA_DOMAIN, "A95", "A16"));
-        TpProcess process2 = new TpProcess("17.1.E - Automatic Frequency Restoration Reserve (aFRR)");
-        process2.setMasterData(new MasterData("A83", CONTROL_AREA_DOMAIN, "A96", "A16"));
-        TpProcess process3 = new TpProcess("17.1.E - Replacement Reserve (RR)");
-        process3.setMasterData(new MasterData("A83", CONTROL_AREA_DOMAIN, "A98", "A16"));
-        //processes.add( ProcessBuilder.newProcess().name().....build());
+        TpProcess process = new ProcessBuilder()
+                .name("17.1.E - Frequency Containment Reserve (FCR)")
+                .processType("A16")
+                .areaDomain(CONTROL_AREA_DOMAIN)
+                .businessType("A95")
+                .documentType("A83")
+                .category(Category.BALANCING)
+                .build();
+        TpProcess process2 = new ProcessBuilder()
+                .name("17.1.E - Automatic Frequency Restoration Reserve (aFRR)")
+                .processType("A16")
+                .areaDomain(CONTROL_AREA_DOMAIN)
+                .businessType("A96")
+                .documentType("A83")
+                .category(Category.BALANCING)
+                .build();
+        TpProcess process3 =  new ProcessBuilder()
+                .name("17.1.E - Replacement Reserve (RR)")
+                .processType("A16")
+                .areaDomain(CONTROL_AREA_DOMAIN)
+                .businessType("A98")
+                .documentType("A83")
+                .category(Category.BALANCING)
+                .build();
         this.processes.add(process);
         this.processes.add(process2);
         this.processes.add(process3);

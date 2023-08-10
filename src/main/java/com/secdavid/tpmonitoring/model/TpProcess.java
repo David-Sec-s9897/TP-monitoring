@@ -1,41 +1,56 @@
 package com.secdavid.tpmonitoring.model;
 
+import com.secdavid.tpmonitoring.builder.ProcessBuilder;
+import com.secdavid.tpmonitoring.enums.Category;
 import com.secdavid.tpmonitoring.model.entsoe.TimeSeries;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class TpProcess {
-    String name;
-    MasterData masterData;
-    List<TimeSeries> timeSeriesList = new ArrayList<>();
+    private String name;
+    private String documentType;
+    private String controlAreaDomain;
+    private String businessType;
+    private String processType;
+    private Category category;
+    private List<TimeSeries> timeSeriesList = new ArrayList<>();
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public String getDocumentType() {
+        return documentType;
     }
 
-    public MasterData getMasterData() {
-        return masterData;
+    public String getControlAreaDomain() {
+        return controlAreaDomain;
     }
 
-    public void setMasterData(MasterData masterData) {
-        this.masterData = masterData;
+    public String getBusinessType() {
+        return businessType;
+    }
+
+    public String getProcessType() {
+        return processType;
+    }
+
+    public Category getCategory() {
+        return category;
     }
 
     public List<TimeSeries> getTimeSeriesList() {
         return timeSeriesList;
     }
 
-    public void setTimeSeriesList(List<TimeSeries> timeSeriesList) {
-        this.timeSeriesList = timeSeriesList;
-    }
-
-    public TpProcess (String name){
-        this.name = name;
+    public TpProcess (ProcessBuilder processBuilder){
+        this.name = processBuilder.name;
+        this.documentType = processBuilder.documentType;
+        this.controlAreaDomain = processBuilder.controlAreaDomain;
+        this.businessType = processBuilder.businessType;
+        this.processType = processBuilder.processType;
+        this.category = processBuilder.category;
     }
 }
 
