@@ -1,5 +1,7 @@
+version: "2.0"
 services:
-  tp-monitoring:
-    build: .
+  tp-monoitoring:
+    build: ./
     ports:
       - "8080:8080"
+      - "9990:9990"
