@@ -89,13 +89,33 @@
 			</f:facet>
 		</p:timeline>
 
-		<p:dataTable id="processTalve" value="#{tpProcessView.processes}" var="process" style="margin-top: 20px">
-			<p:column headerText="Name">
+		<p:dataTable id="processTalve" value="#{tpProcessView.processes}" var="process" style="margin-top: 20px" widgetVar="processes"
+					 rows="10" paginator="true" paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+					 rowsPerPageTemplate="5,10,15">
+			<f:facet name="header">
+				<!--<p:outputPanel>
+					<h:outputText value="Search all fields:" />
+					<p:inputText id="globalFilter" onkeyup="PF('processes').filter()" style="width:150px" placeholder="Enter keyword"/>
+				</p:outputPanel>-->
+			</f:facet>
+			<p:column headerText="Name" sortBy="#{process.name}">
 				<h:outputText value="#{process.name}" />
 			</p:column>
 
-			<p:column headerText="MasterData">
-				<h:outputText value="#{process.masterData}" />
+			<p:column headerText="BussinessType" sortBy="#{process.businessType}">
+				<h:outputText value="#{process.businessType}" />
+			</p:column>
+
+			<p:column headerText="DocumentType" sortBy="#{process.documentType}">
+				<h:outputText value="#{process.documentType}" />
+			</p:column>
+
+			<p:column headerText="ProcessType" sortBy="#{process.processType}">
+				<h:outputText value="#{process.processType}" />
+			</p:column>
+
+			<p:column headerText="Category" sortBy="#{process.category}">
+				<h:outputText value="#{process.category}" />
 			</p:column>
 		</p:dataTable>
 	</h:body>

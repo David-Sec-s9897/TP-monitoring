@@ -11,6 +11,10 @@ public class ProcessBuilder {
     public String businessType;
     public String processType;
     public Category category;
+    public String productionType;
+    public String balancingDirection;
+    public String outArea;
+    public String inArea;
 
     public ProcessBuilder() {
 
@@ -43,6 +47,26 @@ public class ProcessBuilder {
 
     public ProcessBuilder category(Category category) {
         this.category = category;
+        return this;
+    }
+
+    public ProcessBuilder balancingDirection(String balancingDirection) {
+        this.balancingDirection = balancingDirection;
+        return this;
+    }
+
+    public ProcessBuilder productionType(String productionType) {
+        this.productionType = productionType;
+        return this;
+    }
+
+    public ProcessBuilder inArea(String inArea) {
+        this.inArea = inArea;
+        return this;
+    }
+
+    public ProcessBuilder outArea(String outArea) {
+        this.outArea = outArea;
         return this;
     }
 

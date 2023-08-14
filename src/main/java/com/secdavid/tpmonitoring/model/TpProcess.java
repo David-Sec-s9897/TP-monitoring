@@ -14,6 +14,10 @@ public class TpProcess {
     private String businessType;
     private String processType;
     private Category category;
+    private String balancingDirection;
+    private String productionType;
+    private String inArea;
+    private String outArea;
     private List<TimeSeries> timeSeriesList = new ArrayList<>();
 
     public String getName() {
@@ -40,6 +44,22 @@ public class TpProcess {
         return category;
     }
 
+    public String getBalancingDirection() {
+        return balancingDirection;
+    }
+
+    public String getProductionType() {
+        return productionType;
+    }
+
+    public String getInArea() {
+        return inArea;
+    }
+
+    public String getOutArea() {
+        return outArea;
+    }
+
     public List<TimeSeries> getTimeSeriesList() {
         return timeSeriesList;
     }
@@ -51,6 +71,10 @@ public class TpProcess {
         this.businessType = processBuilder.businessType;
         this.processType = processBuilder.processType;
         this.category = processBuilder.category;
+        this.balancingDirection = processBuilder.balancingDirection;
+        this.productionType = processBuilder.productionType;
+        this.inArea = processBuilder.inArea;
+        this.outArea = processBuilder.outArea;
     }
 }
 

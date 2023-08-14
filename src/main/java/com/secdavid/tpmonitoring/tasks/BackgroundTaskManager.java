@@ -49,16 +49,16 @@ public class BackgroundTaskManager {
         ZonedDateTime start = end.minusDays(2);
 
         for (TpProcess process: processes){
-            BalancingMarketDocument balancingMarketDocument = callEntroe(process.getMasterData(), start, end);
+            BalancingMarketDocument balancingMarketDocument = callEntroe(process.getDocumentType(),process.getControlAreaDomain(), process.getBusinessType(), process.getProcessType(), start, end);
             System.out.println(balancingMarketDocument);
             process.getTimeSeriesList().addAll(balancingMarketDocument.getTimeSeries());
 
         }
     }
 
-    private BalancingMarketDocument callEntroe(MasterData masterData, ZonedDateTime start, ZonedDateTime end) {
-        Call<ResponseBody> call = restClient.getService().getDocument(masterData.getDocumentType(),
-                masterData.getControlAreaDomain(), start.format(formatter), end.format(formatter), masterData.getBusinessType(),masterData.getProcessType(),"39cc0b75-19ef-430e-8f98-3bdfec62079f");
+    private BalancingMarketDocument callEntroe(String documentType, String controlAreaDomain, String bussinessType, String processType, ZonedDateTime start, ZonedDateTime end) {
+        Call<ResponseBody> call = restClient.getService().getDocument(documentType,
+                controlAreaDomain, start.format(formatter), end.format(formatter), bussinessType, processType,"39cc0b75-19ef-430e-8f98-3bdfec62079f");
         try {
             Response<ResponseBody> response = call.execute();
             if (response.code() != 200) {
