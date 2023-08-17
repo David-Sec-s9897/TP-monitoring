@@ -15,368 +15,54 @@ import java.util.List;
 public class TPProcessService {
 
     List<TpProcess> processes;
-    public static final String CONTROL_AREA_DOMAIN="10YCH-SWISSGRIDZ";
+    public static final String CONTROL_AREA_DOMAIN = "10YCH-SWISSGRIDZ";
 
     @PostConstruct
-    public void init(){
+    public void init() {
         this.processes = new ArrayList<>();
-        processes.add(new ProcessBuilder()
-                .name("17.1.E - Frequency Containment Reserve (FCR)")
-                .documentType("A83")
-                .processType("A16")
-                .businessType("A95")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("17.1.E - Automatic Frequency Restoration Reserve (aFRR)")
-                .documentType("A83")
-                .processType("A16")
-                .businessType("A96")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("17.1.E - Replacement Reserve (RR)")
-                .documentType("A83")
-                .processType("A16")
-                .businessType("A98")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("17.1.D - Frequency Containment Reserve (FCR)")
-                .documentType("A82")
-                .processType("A34")
-                .businessType("A95")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("17.1.D - Automatic Frequency Restoration Reserve (aFRR)")
-                .documentType("A82")
-                .processType("A34")
-                .businessType("A96")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("17.1.D - Replacement Reserve (RR)")
-                .documentType("A82")
-                .processType("A34")
-                .businessType("A98")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.3.A - Current balancing state")
-                .documentType("A86")
-                .processType("A16")
-                .businessType("B33")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("17.1.F - Automatic Frequency Restoration Reserve (aFRR)")
-                .documentType("A84")
-                .processType("A16")
-                .businessType("A96")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.3.E - Automatic frequency restoration reserve (aFRR)")
-                .documentType("A24")
-                .processType("A51")
-                .businessType("A14")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .balancingDirection("UP")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.3.E - Automatic frequency restoration reserve (aFRR)")
-                .documentType("A24")
-                .processType("A51")
-                .businessType("A14")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .balancingDirection("DOWN")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.3.E - Manual Frequency Restoration Reserve scheduled activation (mFRR SA)")
-                .documentType("A24")
-                .processType("A60")
-                .businessType("A14")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .balancingDirection("UP")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.3.E - Manual Frequency Restoration Reserve scheduled activation (mFRR SA)")
-                .documentType("A24")
-                .processType("A60")
-                .businessType("A14")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .balancingDirection("DOWN")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.3.E - Manual Frequency Restoration Reserve direct activation (mFRR DA)")
-                .documentType("A24")
-                .processType("A61")
-                .businessType("A14")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .balancingDirection("UP")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.3.E - Manual Frequency Restoration Reserve direct activation (mFRR DA)")
-                .documentType("A24")
-                .processType("A61")
-                .businessType("A14")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.BALANCING)
-                .balancingDirection("DOWN")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("6.1.A - Actual Total Load")
-                .documentType("A65")
-                .processType("A16")
-                .businessType("A04")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.LOAD)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("6.1.B - Day-ahead Total Load Forecast")
-                .documentType("A65")
-                .processType("A06")
-                .businessType("A04")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.LOAD)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("14.1.D - Day-ahead Generation Forecasts for Wind and Solar")
-                .documentType("A69")
-                .processType("A01")
-                .businessType("A94")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.GENERATION)
-                .productionType("Solar")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("14.1.D - Day-ahead Generation Forecasts for Wind and Solar")
-                .documentType("A69")
-                .processType("A01")
-                .businessType("A93")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.GENERATION)
-                .productionType("Solar")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.D - Day-ahead Prices")
-                .documentType("A44")
-                .businessType("A62")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("11.1 - Forecasted Day-ahead Transfer Capacities")
-                .documentType("A61")
-                .businessType("A27")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("BZN|DE-LU")
-                .outArea("BZN|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("11.1 - Forecasted Day-ahead Transfer Capacities")
-                .documentType("A61")
-                .businessType("A27")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("BZN|CH")
-                .outArea("BZN|DE-LU")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("11.1 - Forecasted Day-ahead Transfer Capacities")
-                .documentType("A61")
-                .businessType("A27")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|AT")
-                .outArea("CTA|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("11.1 - Forecasted Day-ahead Transfer Capacities")
-                .documentType("A61")
-                .businessType("A27")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|CH")
-                .outArea("CTA|AT")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("11.1 - Forecasted Day-ahead Transfer Capacities")
-                .documentType("A61")
-                .businessType("A27")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|CH")
-                .outArea("CTA|FR")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("11.1 - Forecasted Day-ahead Transfer Capacities")
-                .documentType("A61")
-                .businessType("A27")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|CH")
-                .outArea("CTA|IT")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("11.1 - Forecasted Day-ahead Transfer Capacities")
-                .documentType("A61")
-                .businessType("A27")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|FR")
-                .outArea("CTA|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("11.1 - Forecasted Day-ahead Transfer Capacities")
-                .documentType("A61")
-                .businessType("A27")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|IT")
-                .outArea("CTA|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.G - Physical Flows")
-                .documentType("A11")
-                .businessType("A66")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|AT")
-                .outArea("CTA|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.G - Physical Flows")
-                .documentType("A11")
-                .businessType("A66")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|CH")
-                .outArea("CTA|AT")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.G - Physical Flows")
-                .documentType("A11")
-                .businessType("A66")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|CH")
-                .outArea("CTA|FR")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.G - Physical Flows")
-                .documentType("A11")
-                .businessType("A66")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|CH")
-                .outArea("CTA|IT")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.G - Physical Flows")
-                .documentType("A11")
-                .businessType("A66")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|FR")
-                .outArea("CTA|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.G - Physical Flows")
-                .documentType("A11")
-                .businessType("A66")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|IT")
-                .outArea("CTA|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.F - Total Commercial Schedules")
-                .documentType("A09")
-                .businessType("A06")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("BZN|DE-LU")
-                .outArea("BZN|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.F - Total Commercial Schedules")
-                .documentType("A09")
-                .businessType("A06")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("BZN|AT")
-                .outArea("BZN|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.F - Total Commercial Schedules")
-                .documentType("A09")
-                .businessType("A06")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("BZN|CH")
-                .outArea("BZN|DE-LU")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.F - Total Commercial Schedules")
-                .documentType("A09")
-                .businessType("A06")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("BZN|CH")
-                .outArea("BZN|AT")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.F - Total Commercial Schedules")
-                .documentType("A09")
-                .businessType("A06")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|CH")
-                .outArea("CTA|FR")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.F - Total Commercial Schedules")
-                .documentType("A09")
-                .businessType("A06")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|CH")
-                .outArea("CTA|IT")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.F - Total Commercial Schedules")
-                .documentType("A09")
-                .businessType("A06")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|FR")
-                .outArea("CTA|CH")
-                .build());
-        processes.add(new ProcessBuilder()
-                .name("12.1.F - Total Commercial Schedules")
-                .documentType("A09")
-                .businessType("A06")
-                .areaDomain(CONTROL_AREA_DOMAIN)
-                .category(Category.TRANSMISSION)
-                .inArea("CTA|IT")
-                .outArea("CTA|CH")
-                .build());
+        processes.add(new ProcessBuilder().name("17.1.E - Frequency Containment Reserve (FCR)").documentType("A83").processType("A16").businessType("A95").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).build());
+        processes.add(new ProcessBuilder().name("17.1.E - Automatic Frequency Restoration Reserve (aFRR)").documentType("A83").processType("A16").businessType("A96").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).build());
+        processes.add(new ProcessBuilder().name("17.1.E - Replacement Reserve (RR)").documentType("A83").processType("A16").businessType("A98").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).build());
+        processes.add(new ProcessBuilder().name("17.1.D - Frequency Containment Reserve (FCR)").documentType("A82").processType("A34").businessType("A95").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).build());
+        processes.add(new ProcessBuilder().name("17.1.D - Automatic Frequency Restoration Reserve (aFRR)").documentType("A82").processType("A34").businessType("A96").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).build());
+        processes.add(new ProcessBuilder().name("17.1.D - Replacement Reserve (RR)").documentType("A82").processType("A34").businessType("A98").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).build());
+        processes.add(new ProcessBuilder().name("12.3.A - Current balancing state").documentType("A86").processType("A16").businessType("B33").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).build());
+        processes.add(new ProcessBuilder().name("17.1.F - Automatic Frequency Restoration Reserve (aFRR)").documentType("A84").processType("A60").businessType("A96").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).build());
+        processes.add(new ProcessBuilder().name("12.3.E - Automatic frequency restoration reserve (aFRR)").documentType("A24").processType("A51").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).balancingDirection("UP").build());
+        processes.add(new ProcessBuilder().name("12.3.E - Automatic frequency restoration reserve (aFRR)").documentType("A24").processType("A51").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).balancingDirection("DOWN").build());
+        processes.add(new ProcessBuilder().name("12.3.E - Manual Frequency Restoration Reserve scheduled activation (mFRR SA)").documentType("A24").processType("A60").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).balancingDirection("UP").build());
+        processes.add(new ProcessBuilder().name("12.3.E - Manual Frequency Restoration Reserve scheduled activation (mFRR SA)").documentType("A24").processType("A60").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).balancingDirection("DOWN").build());
+        processes.add(new ProcessBuilder().name("12.3.E - Manual Frequency Restoration Reserve direct activation (mFRR DA)").documentType("A24").processType("A61").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).balancingDirection("UP").build());
+        processes.add(new ProcessBuilder().name("12.3.E - Manual Frequency Restoration Reserve direct activation (mFRR DA)").documentType("A24").processType("A61").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.BALANCING).balancingDirection("DOWN").build());
+
+        processes.add(new ProcessBuilder().name("6.1.A - Actual Total Load").documentType("A65").processType("A16").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.LOAD).build());
+        processes.add(new ProcessBuilder().name("6.1.B - Day-ahead Total Load Forecast").documentType("A65").processType("A01").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.LOAD).build());
+
+        processes.add(new ProcessBuilder().name("14.1.D - Day-ahead Generation Forecasts for Wind and Solar").documentType("A69").processType("A01").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.GENERATION).productionType("Solar").build());
+
+        processes.add(new ProcessBuilder().name("12.1.D - Day-ahead Prices").documentType("A44").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain(CONTROL_AREA_DOMAIN).category(Category.TRANSMISSION).build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("BZN|DE-LU").outArea("BZN|CH").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("BZN|CH").outArea("BZN|DE-LU").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|AT").outArea("CTA|CH").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|AT").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|FR").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|IT").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|FR").outArea("CTA|CH").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|IT").outArea("CTA|CH").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|AT").outArea("CTA|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|AT").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|FR").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|IT").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|FR").outArea("CTA|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|IT").outArea("CTA|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|DE-LU").outArea("BZN|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|AT").outArea("BZN|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|CH").outArea("BZN|DE-LU").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|CH").outArea("BZN|AT").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|FR").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|IT").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|FR").outArea("CTA|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|IT").outArea("CTA|CH").build());
     }
 
     public List<TpProcess> getProcesses() {

@@ -1,6 +1,7 @@
 package com.secdavid.tpmonitoring.builder;
 
 import com.secdavid.tpmonitoring.enums.Category;
+import com.secdavid.tpmonitoring.model.MasterData;
 import com.secdavid.tpmonitoring.model.TpProcess;
 
 public class ProcessBuilder {
@@ -15,6 +16,7 @@ public class ProcessBuilder {
     public String balancingDirection;
     public String outArea;
     public String inArea;
+    public String outDomain;
 
     public ProcessBuilder() {
 
@@ -30,7 +32,7 @@ public class ProcessBuilder {
         return this;
     }
 
-    public ProcessBuilder areaDomain(String controlAreaDomain) {
+    public ProcessBuilder controlAreaDomain(String controlAreaDomain) {
         this.controlAreaDomain = controlAreaDomain;
         return this;
     }
@@ -70,8 +72,15 @@ public class ProcessBuilder {
         return this;
     }
 
-    public TpProcess build(){
-        TpProcess tpProcess = new TpProcess(this);
+    public ProcessBuilder outDomain(String outDomain) {
+        this.outDomain = outDomain;
+        return this;
+    }
+
+    public TpProcess build() {
+        MasterData masterData = new MasterData(documentType, controlAreaDomain, businessType, balancingDirection, processType, productionType, inArea, outArea, outDomain);
+
+        TpProcess tpProcess = new TpProcess(name, category, masterData);
         return tpProcess;
     }
 }

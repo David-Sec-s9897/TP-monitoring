@@ -3,7 +3,7 @@ package com.secdavid.tpmonitoring.model.entsoe;
 import java.util.Date;
 import java.util.List;
 
-public class BalancingMarketDocument {
+public class DefaultMarketDocument {
 
     public String mRID;
     public int revisionNumber;
@@ -116,7 +116,7 @@ public class BalancingMarketDocument {
 
     @Override
     public String toString() {
-        return "BalancingMarketDocument{" +
+        return "DefaultMarketDocument{" +
                 "mRID='" + mRID + '\'' +
                 ", revisionNumber=" + revisionNumber +
                 ", type='" + type + '\'' +
@@ -146,8 +146,5 @@ public class BalancingMarketDocument {
         public String codingScheme;
         public String text;
     }
-
-
-
 
 }

@@ -12,6 +12,7 @@ import retrofit2.http.GET;
 import retrofit2.http.Query;
 
 import java.io.Serializable;
+import java.util.concurrent.TimeUnit;
 
 @Dependent
 public class EntsoeRestClient implements Serializable {
@@ -21,8 +22,11 @@ public class EntsoeRestClient implements Serializable {
     private EntsoeRestService restService;
 
     @PostConstruct
-    public void init(){
-        OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
+    public void init() {
+        OkHttpClient.Builder httpClient = new OkHttpClient.Builder()
+                .connectTimeout(30, TimeUnit.SECONDS)
+                .readTimeout(30, TimeUnit.SECONDS)
+                .writeTimeout(30, TimeUnit.SECONDS);
 
         HttpLoggingInterceptor httpLoggingInterceptor = new HttpLoggingInterceptor();
         httpLoggingInterceptor.setLevel(HttpLoggingInterceptor.Level.BASIC);
@@ -47,12 +51,49 @@ public class EntsoeRestClient implements Serializable {
 
     public interface EntsoeRestService {
         @GET("/api")
-        Call<ResponseBody> getDocument(@Query("documentType") String documentType,
-                                       @Query("controlArea_Domain") String controlArea_Domain,
-                                       @Query("periodStart") String periodStart,
-                                       @Query("periodEnd") String periodEnd,
-                                       @Query("businessType") String businessType,
-                                       @Query("processType") String processType,
-                                       @Query("securityToken") String securityToken );
+        Call<ResponseBody> getDocumentDefault(@Query("documentType") String documentType,
+                                              @Query("controlArea_Domain") String controlArea_Domain,
+                                              @Query("periodStart") String periodStart,
+                                              @Query("periodEnd") String periodEnd,
+                                              @Query("businessType") String businessType,
+                                              @Query("processType") String processType,
+                                              @Query("securityToken") String securityToken);
+
+        @GET("/api")
+        Call<ResponseBody> getDocumentBalancing(@Query("documentType") String documentType,
+                                                @Query("area_Domain") String controlArea_Domain,
+                                                @Query("periodStart") String periodStart,
+                                                @Query("periodEnd") String periodEnd,
+                                                @Query("businessType") String businessType,
+                                                @Query("processType") String processType,
+                                                @Query("securityToken") String securityToken);
+
+        @GET("/api")
+        Call<ResponseBody> getDocumentLoad(@Query("documentType") String documentType,
+                                           @Query("processType") String processType,
+                                           @Query("outBiddingZone_Domain") String controlArea_Domain,
+                                           @Query("periodStart") String periodStart,
+                                           @Query("periodEnd") String periodEnd,
+                                           @Query("businessType") String businessType,
+                                           @Query("securityToken") String securityToken);
+
+        @GET("/api")
+        Call<ResponseBody> getDocumentGeneration(@Query("documentType") String documentType,
+                                                 @Query("in_Domain") String controlArea_Domain,
+                                                 @Query("periodStart") String periodStart,
+                                                 @Query("periodEnd") String periodEnd,
+                                                 @Query("businessType") String businessType,
+                                                 @Query("processType") String processType,
+                                                 @Query("securityToken") String securityToken);
+
+        @GET("/api")
+        Call<ResponseBody> getDocumentTransmission(@Query("documentType") String documentType,
+                                                   @Query("in_Domain") String controlArea_Domain,
+                                                   @Query("out_Domain") String out_Domain,
+                                                   @Query("periodStart") String periodStart,
+                                                   @Query("periodEnd") String periodEnd,
+                                                   @Query("contract_MarketAgreement.Type") String businessType,
+                                                   @Query("processType") String processType,
+                                                   @Query("securityToken") String securityToken);
     }
 }
