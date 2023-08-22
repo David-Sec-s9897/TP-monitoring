@@ -15,6 +15,7 @@ import java.util.List;
 public class TPProcessService {
 
     List<TpProcess> processes;
+    int runs = 0;
     public static final String CONTROL_AREA_DOMAIN = "10YCH-SWISSGRIDZ";
 
     @PostConstruct
@@ -41,31 +42,39 @@ public class TPProcessService {
         processes.add(new ProcessBuilder().name("14.1.D - Day-ahead Generation Forecasts for Wind and Solar").documentType("A69").processType("A01").controlAreaDomain(CONTROL_AREA_DOMAIN).category(Category.GENERATION).productionType("Solar").build());
 
         processes.add(new ProcessBuilder().name("12.1.D - Day-ahead Prices").documentType("A44").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain(CONTROL_AREA_DOMAIN).category(Category.TRANSMISSION).build());
-        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("BZN|DE-LU").outArea("BZN|CH").businessType("A01").build());
-        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("BZN|CH").outArea("BZN|DE-LU").businessType("A01").build());
-        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|AT").outArea("CTA|CH").businessType("A01").build());
-        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|AT").businessType("A01").build());
-        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|FR").businessType("A01").build());
-        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|IT").businessType("A01").build());
-        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|FR").outArea("CTA|CH").businessType("A01").build());
-        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|IT").outArea("CTA|CH").businessType("A01").build());
-        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|AT").outArea("CTA|CH").build());
-        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|AT").build());
-        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|FR").build());
-        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|IT").build());
-        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|FR").outArea("CTA|CH").build());
-        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|IT").outArea("CTA|CH").build());
-        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|DE-LU").outArea("BZN|CH").build());
-        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|AT").outArea("BZN|CH").build());
-        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|CH").outArea("BZN|DE-LU").build());
-        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|CH").outArea("BZN|AT").build());
-        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|FR").build());
-        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|IT").build());
-        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|FR").outArea("CTA|CH").build());
-        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|IT").outArea("CTA|CH").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities DE/LU - CH").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("BZN|DE-LU").outArea("BZN|CH").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities CH - DE/LU").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("BZN|CH").outArea("BZN|DE-LU").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities AT - CH").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|AT").outArea("CTA|CH").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities CH - AT ").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|AT").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities CH - FR").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|FR").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities CH - IT").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|IT").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities FR - CH").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|FR").outArea("CTA|CH").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("11.1 - Forecasted Day-ahead Transfer Capacities IT - CH").documentType("A61").controlAreaDomain("10YBE----------2").outDomain("10YGB----------A").category(Category.TRANSMISSION).inArea("CTA|IT").outArea("CTA|CH").businessType("A01").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows AT - CH").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|AT").outArea("CTA|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows CH - AT").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|AT").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows CH - FR").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|FR").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows CH - IT").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|IT").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows FR - CH").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|FR").outArea("CTA|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.G - Physical Flows IT - CH").documentType("A11").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10YDE-RWENET---I").category(Category.TRANSMISSION).inArea("CTA|IT").outArea("CTA|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules DE/LU - CH").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|DE-LU").outArea("BZN|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules AT - CH").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|AT").outArea("BZN|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules CH - DE/LU").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|CH").outArea("BZN|DE-LU").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules CH - AT").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("BZN|CH").outArea("BZN|AT").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules CH - FR").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|FR").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules CH - IT").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|CH").outArea("CTA|IT").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules FR - CH").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|FR").outArea("CTA|CH").build());
+        processes.add(new ProcessBuilder().name("12.1.F - Total Commercial Schedules IT - CH").documentType("A09").controlAreaDomain(CONTROL_AREA_DOMAIN).outDomain("10Y1001A1001A82H").category(Category.TRANSMISSION).inArea("CTA|IT").outArea("CTA|CH").build());
     }
 
     public List<TpProcess> getProcesses() {
         return processes;
+    }
+
+    public int getRuns() {
+        return runs;
+    }
+
+    public void inrementRuns() {
+        runs++;
     }
 }

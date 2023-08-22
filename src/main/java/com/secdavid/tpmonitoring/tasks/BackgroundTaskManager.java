@@ -34,7 +34,7 @@ public class BackgroundTaskManager {
     public void load() throws InterruptedException {
         List<TpProcess> processes = processService.getProcesses();
         ZonedDateTime end = LocalDateTime.now().withHour(22).withMinute(0).withSecond(0).atZone(ZoneId.of("UTC"));
-        ZonedDateTime start = end.minusDays(1);
+        ZonedDateTime start = end.minusDays(processService.getRuns()>0?1:5);
 
         for (TpProcess pr : processes) {
             try {
@@ -65,6 +65,7 @@ public class BackgroundTaskManager {
             }
             Thread.sleep(10000);
         }
+        processService.inrementRuns();
     }
 
 
