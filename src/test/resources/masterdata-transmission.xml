@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Publication_MarketDocument xmlns:cl="urn:entsoe.eu:wgedi:codelists" xsi:schemaLocation="urn:iec62325.351:tc57wg16:451-3:publicationdocument:7:0 iec62325-451-3-publication.xsd" xmlns="urn:iec62325.351:tc57wg16:451-3:publicationdocument:7:0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<mRID>silo_32941_341802_Calc</mRID>
+	<revisionNumber>2</revisionNumber>
+	<type>A11</type>
+	<sender_MarketParticipant.mRID codingScheme="NKG">10XCH-SWISSGRIDC</sender_MarketParticipant.mRID>
+	<sender_MarketParticipant.marketRole.type>A04</sender_MarketParticipant.marketRole.type>
+	<receiver_MarketParticipant.mRID codingScheme="NKZ">10X1001A1001A450</receiver_MarketParticipant.mRID>
+	<receiver_MarketParticipant.marketRole.type>A32</receiver_MarketParticipant.marketRole.type>
+	<createdDateTime>2001-12-17T09:30:47Z</createdDateTime>
+	<TimeSeries>
+		<mRID>silo:32941:341802:Calc</mRID>
+		<businessType>A66</businessType>
+		<in_Domain.mRID codingScheme="A01">10YCH-SWISSGRIDZ</in_Domain.mRID>
+		<out_Domain.mRID codingScheme="A01">10Y1001A1001A63L</out_Domain.mRID>
+		<quantity_Measure_Unit.name>MAW</quantity_Measure_Unit.name>
+		<curveType>A01</curveType>
+	</TimeSeries>
+</Publication_MarketDocument>
+

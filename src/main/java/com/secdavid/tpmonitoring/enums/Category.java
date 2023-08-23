@@ -4,5 +4,11 @@ public enum Category {
     BALANCING,
     LOAD,
     GENERATION,
-    TRANSMISSION;
+    CONGESTION_MANAGEMENT,
+    FINAL_NOMINATION,
+    OUTAGE,
+    CONGESTION,
+    TRANSMISSION,
+    UNKNOWN;
+
 }

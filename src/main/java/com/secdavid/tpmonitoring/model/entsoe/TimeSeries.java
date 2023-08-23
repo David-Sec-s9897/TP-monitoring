@@ -94,4 +94,18 @@ public class TimeSeries {
         result = 31 * result + curveType.hashCode();
         return result;
     }
+
+    @Override
+    public String toString() {
+        return "TimeSeries{" +
+                "mRID='" + mRID + '\'' +
+                ", businessType='" + businessType + '\'' +
+                ", mktPSRTypePsrType='" + mktPSRTypePsrType + '\'' +
+                ", flowDirectionDirection='" + flowDirectionDirection + '\'' +
+                ", quantity_Measure_UnitName='" + quantity_Measure_UnitName + '\'' +
+                ", curveType='" + curveType + '\'' +
+                ", Period=" + Period +
+                ", complete=" + complete +
+                '}';
+    }
 }

@@ -13,9 +13,10 @@ import org.primefaces.model.timeline.TimelineModel;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
+import java.util.Set;
 
 import static java.util.stream.Collectors.groupingBy;
 
@@ -39,33 +40,44 @@ public class CustomTimelineView implements Serializable {
         // create timeline model
         model = new TimelineModel<>();
 
-        for (TpProcess process : service.getProcesses()) {
-            for (TimeSeries ts : process.getTimeSeriesList()) {
+        buildAvailableTimeLineEvents();
 
-                TimelineEvent event = TimelineEvent.builder()
-                        .data("Avialable")
-                        .startDate(ts.getPeriod().timeInterval.start.toLocalDateTime())
-                        .endDate(ts.getPeriod().timeInterval.end.toLocalDateTime())
-                        .editable(false)
-                        .group(process.getName())
-                        .styleClass("available")
-                        .build();
-                model.add(event);
-            }
-        }
         Map<String, List<TimelineEvent<String>>> groups = model.getEvents().stream()
                 .collect(groupingBy(TimelineEvent::getGroup));
 
-        for (String timelineGroup : groups.keySet()){
+        for (String timelineGroup : groups.keySet()) {
             List<TimelineEvent<String>> events = groups.get(timelineGroup);
-            for (int i = 0 ; i <events.size()-1; i++) {
+            for (int i = 0; i < events.size() - 1; i++) {
                 TimelineEvent event = events.get(i);
-                TimelineEvent nextEvent = events.get(i+1);
-                if (!event.getEndDate().equals(nextEvent.getStartDate()));
-                model.add(createUnavailableEvent(event.getEndDate(), nextEvent.getStartDate(), timelineGroup));
+                TimelineEvent nextEvent = events.get(i + 1);
+                if (!event.getEndDate().equals(nextEvent.getStartDate())) {
+                    model.add(createUnavailableEvent(event.getEndDate(), nextEvent.getStartDate(), timelineGroup));
+                }
             }
         }
     }
+
+    private void buildAvailableTimeLineEvents() {
+        for (TpProcess process : service.getProcesses()) {
+            Set<StartEndTime> set = new HashSet<>();
+            for (TimeSeries ts : process.getTimeSeriesList()) {
+                StartEndTime startEndTime = new StartEndTime(ts.getPeriod().timeInterval.start.toLocalDateTime(), ts.getPeriod().timeInterval.end.toLocalDateTime());
+                if (!set.contains(startEndTime)) {
+                    set.add(startEndTime);
+                    TimelineEvent event = TimelineEvent.builder()
+                            .data("Avialable")
+                            .startDate(ts.getPeriod().timeInterval.start.toLocalDateTime())
+                            .endDate(ts.getPeriod().timeInterval.end.toLocalDateTime())
+                            .editable(false)
+                            .group(process.getName())
+                            .styleClass("available")
+                            .build();
+                    model.add(event);
+                }
+            }
+        }
+    }
+
 
     private TimelineEvent createUnavailableEvent(LocalDateTime start, LocalDateTime end, String group) {
         return TimelineEvent.builder()

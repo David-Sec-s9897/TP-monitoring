@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Balancing_MarketDocument xmlns="urn:iec62325.351:tc57wg16:451-6:balancingdocument:3:0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="urn:iec62325.351:tc57wg16:451-6:balancingdocument:3:0 iec62325-451-6-balancing.xsd">
+    <mRID>silo_33162_315742_raw_001</mRID>
+    <revisionNumber>1</revisionNumber>
+    <type>A89</type>
+    <process.processType>A34</process.processType>
+    <sender_MarketParticipant.mRID codingScheme="NKG">10XCH-SWISSGRIDC</sender_MarketParticipant.mRID>
+    <sender_MarketParticipant.marketRole.type>A04</sender_MarketParticipant.marketRole.type>
+    <receiver_MarketParticipant.mRID codingScheme="NKZ">10X1001A1001A450</receiver_MarketParticipant.mRID>
+    <receiver_MarketParticipant.marketRole.type>A32</receiver_MarketParticipant.marketRole.type>
+    <createdDateTime>2001-12-17T09:30:47Z</createdDateTime>
+    <docStatus>
+        <value>A06</value>
+    </docStatus>
+    <controlArea_Domain.mRID codingScheme="A01">10YCH-SWISSGRIDZ</controlArea_Domain.mRID>
+    <TimeSeries>
+        <mRID>silo:33162:315742:raw</mRID>
+        <businessType>A96</businessType>
+        <type_MarketAgreement.type>A02</type_MarketAgreement.type>
+        <mktPSRType.psrType>A04</mktPSRType.psrType>
+        <flowDirection.direction>A03</flowDirection.direction>
+        <currency_Unit.name>EUR</currency_Unit.name>
+        <price_Measure_Unit.name>MAW</price_Measure_Unit.name>
+        <curveType>A01</curveType>
+    </TimeSeries>
+</Balancing_MarketDocument>

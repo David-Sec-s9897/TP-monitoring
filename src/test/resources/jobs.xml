@@ -1,0 +1,1612 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<TimeSeriesJobList>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.C W A96 PoPBR asymmetric</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 12 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33162:825041:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33162:825043:Calc</timeseriesKeys>
+        <startCron>0 0 23 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T14:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>04e67dfa-e699-4b77-9e12-939034ede5b8</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20180717145334_04e67dfa-e699-4b77-9e12-939034ede5b8_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20210208163101_04e67dfa-e699-4b77-9e12-939034ede5b8_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.F PRICES OF ACTIVATED BALANCING ENERGY_aFRR</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>080245f8-0589-418c-b29c-628804a87370</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B Countertrading CH A</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448150:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>09372814-e0cd-4f34-81ee-92304daf83ce</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20220127134405_09372814-e0cd-4f34-81ee-92304daf83ce_v2.xslt</mappingFile>
+        <masterDataFile>20220130121438_09372814-e0cd-4f34-81ee-92304daf83ce_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading CH D Amprion</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448146:Calc</timeseriesKeys>
+        <startCron>0 1 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>0a6dbc4c-5b45-4e0b-8557-f3cdc70465b6</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810091700_0a6dbc4c-5b45-4e0b-8557-f3cdc70465b6_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810091646_0a6dbc4c-5b45-4e0b-8557-f3cdc70465b6_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B Countertrading D Transnet CH</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448149:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>0eb0910f-7344-4701-ac45-0bac61a00690</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160308112104_0eb0910f-7344-4701-ac45-0bac61a00690_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160308112055_0eb0910f-7344-4701-ac45-0bac61a00690_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.C W A98 Prices of Procured Balancing Reserves C</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 12 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33165:315745:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33609:343912:Calc</timeseriesKeys>
+        <startCron>0 0 23 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T14:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>0f2cbb54-86fa-4302-8dac-dc2f1b293661</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20151002151059_0f2cbb54-86fa-4302-8dac-dc2f1b293661_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20210209163122_0f2cbb54-86fa-4302-8dac-dc2f1b293661_v5.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.B W 96 AoBRuC asymmetric</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 12 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33461:824992:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33461:824994:Calc</timeseriesKeys>
+        <startCron>0 0 22 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T14:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>14af2c5e-2e57-4ace-a46b-647c9e8eaede</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20180716132536_14af2c5e-2e57-4ace-a46b-647c9e8eaede_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20180716132151_14af2c5e-2e57-4ace-a46b-647c9e8eaede_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>Update 12.1.G FR CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 30 4 * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:341786:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <lastStart>2021-11-14T05:32:22.023+01:00</lastStart>
+        <nextStart>2022-09-03T06:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>14be6bd2-dcba-422a-8c80-ce00bc2ee132</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150317184824_14be6bd2-dcba-422a-8c80-ce00bc2ee132_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150317184805_14be6bd2-dcba-422a-8c80-ce00bc2ee132_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading FR CH</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448153:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <lastStart>2021-11-15T18:14:01.023+01:00</lastStart>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>23471f9b-481a-41a4-b6ce-70072dd2b981</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810085310_23471f9b-481a-41a4-b6ce-70072dd2b981_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810085258_23471f9b-481a-41a4-b6ce-70072dd2b981_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.C D A95 Prices of Procured Balancing Reserves</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <timeseriesKeys>silo:33159:1123582:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>2683863f-4b51-416d-8a7d-a8786756d7d5</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210726133912_2683863f-4b51-416d-8a7d-a8786756d7d5_v6.xslt</mappingFile>
+        <masterDataFile>20210720121240_2683863f-4b51-416d-8a7d-a8786756d7d5_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.B W 96 Amount of Balancing Reserves Under Contract</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 12 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33461:341597:Calc</timeseriesKeys>
+        <startCron>0 0 23 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T14:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>26beb8bc-d917-487e-9d76-61dd6d373b7c</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20151002144426_26beb8bc-d917-487e-9d76-61dd6d373b7c_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20151002144415_26beb8bc-d917-487e-9d76-61dd6d373b7c_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.F Prices of Activated Balancing Energy</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <timeseriesKeys>171F.*</timeseriesKeys>
+        <active>true</active>
+        <state>true</state>
+        <businessKey>28c6db9e-a8f4-46d3-9ecd-d98f0af406c5</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>true</fileUpload>
+        <mappingFile>20210312113851_28c6db9e-a8f4-46d3-9ecd-d98f0af406c5_v2.xslt</mappingFile>
+        <masterDataFile>20210312113818_28c6db9e-a8f4-46d3-9ecd-d98f0af406c5_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading A CH</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448151:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>28ccb5a3-9c7c-4363-9855-4e49ada6cf82</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810091459_28ccb5a3-9c7c-4363-9855-4e49ada6cf82_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810091444_28ccb5a3-9c7c-4363-9855-4e49ada6cf82_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading CH IT</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448154:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>2b924071-ea15-4937-b6b0-b61833579a5e</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810090223_2b924071-ea15-4937-b6b0-b61833579a5e_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810090212_2b924071-ea15-4937-b6b0-b61833579a5e_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.D A98 Accepted Aggregated Offers</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 12 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33404:341180:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33404:434874:Calc</timeseriesKeys>
+        <startCron>0 0 22 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T14:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>2d57f5ce-79f5-40c7-97cf-cc042ad6a5a4</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20151002163342_2d57f5ce-79f5-40c7-97cf-cc042ad6a5a4_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20151002163331_2d57f5ce-79f5-40c7-97cf-cc042ad6a5a4_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 Day ahead D-1 CH DAL</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 15 07 * * ?</cronExpression>
+        <timeseriesKeys>silo:32624:444309:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32624:444306:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-08-01T13:08:02.087+02:00</lastStart>
+        <nextStart>2023-04-06T09:15:00+02:00</nextStart>
+        <active>true</active>
+        <state>true</state>
+        <businessKey>2dae98f0-373b-4ab8-9103-cafec33a8d45</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160217132109_2dae98f0-373b-4ab8-9103-cafec33a8d45_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20181115180556_2dae98f0-373b-4ab8-9103-cafec33a8d45_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.F - Scheduled Commercial Exchanges - AT CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 17 * * ?</cronExpression>
+        <timeseriesKeys>silo:33423:867066:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T19:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>30e4a215-a104-4461-bd4f-cde5c300641f</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210204131023_30e4a215-a104-4461-bd4f-cde5c300641f_v3.xslt</mappingFile>
+        <masterDataFile>20181115174518_30e4a215-a104-4461-bd4f-cde5c300641f_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B Countertrading CH D Transnet</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448148:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>36c4106f-963f-4279-ae73-9e85c30f2670</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160308113817_36c4106f-963f-4279-ae73-9e85c30f2670_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160308113809_36c4106f-963f-4279-ae73-9e85c30f2670_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.C D A95 PoPBR ItemMerge</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <mergeType>itemMerge</mergeType>
+        <timeseriesKeys>silo:33159:1123582:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ?</startCron>
+        <duration>P1D</duration>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>3c63c6de-346f-4711-a7be-666409c3c7cd</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210726110613_3c63c6de-346f-4711-a7be-666409c3c7cd_v1.xslt</mappingFile>
+        <masterDataFile>20210726110546_3c63c6de-346f-4711-a7be-666409c3c7cd_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>Update 12.1.G IT CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 30 4 * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:341788:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-03T06:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>3c6b3429-d043-4ca9-a024-b5ca0603f27e</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150317185543_3c6b3429-d043-4ca9-a024-b5ca0603f27e_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150317185523_3c6b3429-d043-4ca9-a024-b5ca0603f27e_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>Test</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>402ee02e-4018-4766-860f-cf303da57acc</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading CH A</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448150:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>true</active>
+        <state>true</state>
+        <businessKey>403c61f1-bb5d-41a1-b1c9-7d4c3358fc1a</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810085812_403c61f1-bb5d-41a1-b1c9-7d4c3358fc1a_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810085759_403c61f1-bb5d-41a1-b1c9-7d4c3358fc1a_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 - Monthly forecasted cross-zonal capacity - CH AT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 0 1 1 ? *</cronExpression>
+        <timeseriesKeys>silo:32622:856355:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32622:856354:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ?</startCron>
+        <duration>P1M</duration>
+        <lastStart>2023-08-01T12:36:02.150+02:00</lastStart>
+        <nextStart>2023-01-01T01:00:00+01:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>459fae74-3381-400e-83fb-8a75fb0d55a9</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20181115181018_459fae74-3381-400e-83fb-8a75fb0d55a9_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20181115180932_459fae74-3381-400e-83fb-8a75fb0d55a9_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>16.1.C - Aggregated Generation per Type - Nuclear</timeSeriesName>
+        <timeSeriesCategory>Generation</timeSeriesCategory>
+        <cronExpression>0 00 9 * * ?</cronExpression>
+        <timeseriesKeys>silo:33661:343977:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <lastStart>2019-12-12T11:43:43.057+01:00</lastStart>
+        <nextStart>2022-09-02T11:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>false</state>
+        <businessKey>469bd728-c5b8-42ae-86c0-626ece918095</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150409090840_469bd728-c5b8-42ae-86c0-626ece918095_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150409090828_469bd728-c5b8-42ae-86c0-626ece918095_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading CH FR</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448152:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>490d41dd-83ec-4cf2-9305-33937c548e2f</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810091308_490d41dd-83ec-4cf2-9305-33937c548e2f_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810091253_490d41dd-83ec-4cf2-9305-33937c548e2f_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 Day ahead D-1 CH IT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 15 07 * * ?</cronExpression>
+        <timeseriesKeys>silo:32624:444311:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32624:444308:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-08-07T10:28:02.320+02:00</lastStart>
+        <nextStart>2022-09-03T09:15:00+02:00</nextStart>
+        <active>true</active>
+        <state>true</state>
+        <businessKey>62d7244b-764b-45d6-aabb-d9e7a7e67001</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160128135309_62d7244b-764b-45d6-aabb-d9e7a7e67001_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20171120135239_62d7244b-764b-45d6-aabb-d9e7a7e67001_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.D A95 Accepted Aggregated Offers</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 08 * * ?</cronExpression>
+        <timeseriesKeys>silo:33402:341178:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33402:434873:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T10:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>64775677-9992-4ae1-bd18-abf6a6b9d8a2</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20151002162844_64775677-9992-4ae1-bd18-abf6a6b9d8a2_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20151002162833_64775677-9992-4ae1-bd18-abf6a6b9d8a2_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.B W 98 Amount of Balancing Reserves Under Contract</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 12 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33476:341619:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33471:341607:Calc</timeseriesKeys>
+        <startCron>0 0 22 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T14:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>67f32211-dfff-4fff-9502-6947b67fd19d</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20151002144644_67f32211-dfff-4fff-9502-6947b67fd19d_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20151002144629_67f32211-dfff-4fff-9502-6947b67fd19d_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>FinalNomination</timeSeriesName>
+        <timeSeriesCategory>FinalNomination</timeSeriesCategory>
+        <cronExpression>0 0 05 * * ?</cronExpression>
+        <nextStart>2022-09-03T07:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>68980e82-64f7-4757-858e-f95e846a0bd5</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.D A96 Accepted Aggregated Offers</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 12 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33401:341177:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33401:434872:Calc</timeseriesKeys>
+        <startCron>0 0 22 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T14:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>6c3bfc24-1c61-4267-b735-26fc9401209d</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20151002163030_6c3bfc24-1c61-4267-b735-26fc9401209d_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20151002163021_6c3bfc24-1c61-4267-b735-26fc9401209d_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.E - ACTIVATED BALANCING ENERGY TRL</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 45 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33485:341748:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33484:414913:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:45:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>6f6218c5-cb50-4968-9cbb-32df79e51b27</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150928121450_6f6218c5-cb50-4968-9cbb-32df79e51b27_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20210210161342_6f6218c5-cb50-4968-9cbb-32df79e51b27_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.C Cost of Congestion</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <timeseriesKeys>silo:33675:344638:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33675:344637:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33675:344640:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ?</startCron>
+        <duration>P1M</duration>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>8497bf86-fd03-4160-a9ef-a833cea0390a</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160801125911_8497bf86-fd03-4160-a9ef-a833cea0390a_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20210208154718_8497bf86-fd03-4160-a9ef-a833cea0390a_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.B W 95 Amount of Balancing Reserves Under Contract</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 14 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33462:427221:Calc</timeseriesKeys>
+        <startCron>0 0 22 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T16:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>84b31c4d-b9cc-46be-9638-0f8fd7e9651c</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20151002144226_84b31c4d-b9cc-46be-9638-0f8fd7e9651c_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20151002144215_84b31c4d-b9cc-46be-9638-0f8fd7e9651c_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.G Imbalance Prices</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <timeseriesKeys>171G.*</timeseriesKeys>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>85a76fe5-3ee6-45be-84e3-a0e0e0105bb2</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>true</fileUpload>
+        <mappingFile>20210312115911_85a76fe5-3ee6-45be-84e3-a0e0e0105bb2_v3.xslt</mappingFile>
+        <masterDataFile>20210312115847_85a76fe5-3ee6-45be-84e3-a0e0e0105bb2_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>16.1.C - Aggregated Generation per Type - Fossil Gas</timeSeriesName>
+        <timeSeriesCategory>Generation</timeSeriesCategory>
+        <cronExpression>0 00 9 * * ?</cronExpression>
+        <timeseriesKeys>silo:33661:343967:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <lastStart>2019-11-21T11:38:43.027+01:00</lastStart>
+        <nextStart>2022-09-02T11:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>false</state>
+        <businessKey>86d9b122-fbc1-423e-bb1e-575628106d5a</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150409091037_86d9b122-fbc1-423e-bb1e-575628106d5a_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150409091024_86d9b122-fbc1-423e-bb1e-575628106d5a_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>Update 12.1.G CH FR</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 30 4 * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:315573:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-07-12T10:41:02.070+02:00</lastStart>
+        <nextStart>2022-09-03T06:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>8c1ddbb4-12a5-4c07-87c3-1fdcf699e058</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150317185038_8c1ddbb4-12a5-4c07-87c3-1fdcf699e058_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150317185014_8c1ddbb4-12a5-4c07-87c3-1fdcf699e058_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.A Stuendlich Actual Total Load</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:107967:702141:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>8c362b78-1d5d-469b-9c43-4299336b4636</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20170125175401_8c362b78-1d5d-469b-9c43-4299336b4636_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20170125175336_8c362b78-1d5d-469b-9c43-4299336b4636_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B Countertrading A CH</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448151:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>8ca2b0f5-3570-4aac-b8b6-9d3c757cbf66</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160308111507_8ca2b0f5-3570-4aac-b8b6-9d3c757cbf66_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160308111458_8ca2b0f5-3570-4aac-b8b6-9d3c757cbf66_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.B D 95 Amount of Balancing Reserves Under Contract</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>97d760e0-231c-49da-b24c-1b465fa99629</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>Update 12.1.G CH AT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 30 4 * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:314080:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-07-12T10:40:02.080+02:00</lastStart>
+        <nextStart>2022-09-03T06:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>9f40d4c7-f48d-41d1-9894-e9f36c6d0c27</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150317170530_9f40d4c7-f48d-41d1-9894-e9f36c6d0c27_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150317170511_9f40d4c7-f48d-41d1-9894-e9f36c6d0c27_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.F - Scheduled Commercial Exchanges - CH AT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 17 * * ?</cronExpression>
+        <timeseriesKeys>silo:33423:867065:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T19:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>a3b4e1fe-40c8-4cd0-97e3-af4bb85caf82</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20181115174955_a3b4e1fe-40c8-4cd0-97e3-af4bb85caf82_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20181115174928_a3b4e1fe-40c8-4cd0-97e3-af4bb85caf82_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B Countertrading CH D Amprion</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448146:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>a4fc0c37-2ece-42b4-b662-ee4e6e463b1d</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160308111701_a4fc0c37-2ece-42b4-b662-ee4e6e463b1d_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160308111652_a4fc0c37-2ece-42b4-b662-ee4e6e463b1d_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.C - Week-Ahead total load forecast per day_Copy</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <timeseriesKeys>silo:32903:313588:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32903:313587:Calc</timeseriesKeys>
+        <startCron>0 0 23 ? * SUN *</startCron>
+        <duration>P7D</duration>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>a8f138c9-4940-4a14-b436-d05e8985202f</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210208152030_a8f138c9-4940-4a14-b436-d05e8985202f_v1.xslt</mappingFile>
+        <masterDataFile>20210208152022_a8f138c9-4940-4a14-b436-d05e8985202f_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading D Amprion CH</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448147:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>a9119c69-b9f5-448e-b967-03a4290234c3</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810091110_a9119c69-b9f5-448e-b967-03a4290234c3_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810091056_a9119c69-b9f5-448e-b967-03a4290234c3_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>[17.1.F]_PRICES OF ACTIVATED BALANCING ENERGY_aFRR_renamed</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 15 07 * * ?</cronExpression>
+        <nextStart>2023-08-23T09:15:00+02:00</nextStart>
+        <active>true</active>
+        <state>true</state>
+        <businessKey>a9c7a30f-c24a-4028-89d0-42b3ab168854</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 Day ahead D-1 CH FR</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 15 07 * * ?</cronExpression>
+        <timeseriesKeys>silo:32624:444310:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32624:444307:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-08-07T10:29:02.287+02:00</lastStart>
+        <nextStart>2022-09-03T09:15:00+02:00</nextStart>
+        <active>true</active>
+        <state>true</state>
+        <businessKey>afa70599-9039-48f4-b1e4-508ef4f9fd39</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160128135156_afa70599-9039-48f4-b1e4-508ef4f9fd39_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160128135139_afa70599-9039-48f4-b1e4-508ef4f9fd39_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.C_WEEK-AHEAD_MI</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>b144a3a2-89c7-46b8-9a16-bc34c49fbdf5</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B Countertrading D Amprion CH</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448147:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>b61fff37-1a73-4bf5-a896-86a08c22803e</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160308111807_b61fff37-1a73-4bf5-a896-86a08c22803e_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160308111759_b61fff37-1a73-4bf5-a896-86a08c22803e_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 Day Ahead D-1 CH AT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 15 07 * * ?</cronExpression>
+        <timeseriesKeys>silo:32624:867064:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32624:867063:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-03T09:15:00+02:00</nextStart>
+        <active>true</active>
+        <state>true</state>
+        <businessKey>c3e526a3-e09c-47a2-b91e-2f746c8fe104</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20181115175831_c3e526a3-e09c-47a2-b91e-2f746c8fe104_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20181115175811_c3e526a3-e09c-47a2-b91e-2f746c8fe104_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading IT CH</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448155:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>c701f906-e6be-41fe-a07f-6397e132759b</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810090900_c701f906-e6be-41fe-a07f-6397e132759b_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810090847_c701f906-e6be-41fe-a07f-6397e132759b_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.C W A95 Prices of Procured Balancing Reserves</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 14 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33163:315743:Calc</timeseriesKeys>
+        <startCron>0 0 22 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T16:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>c7d019ad-6e55-46a5-8701-d14087afb433</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20170320112858_c7d019ad-6e55-46a5-8701-d14087afb433_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20151002150357_c7d019ad-6e55-46a5-8701-d14087afb433_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>Update 12.1.G CH IT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 30 4 * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:341787:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-07-12T10:39:02.003+02:00</lastStart>
+        <nextStart>2022-09-03T06:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>c88a92a0-6131-4835-9a5a-af664c384282</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150317185334_c88a92a0-6131-4835-9a5a-af664c384282_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150317185313_c88a92a0-6131-4835-9a5a-af664c384282_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.I - Financial Expenses and Income</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <mergeType>171I</mergeType>
+        <timeseriesKeys>silo:33667:344591:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33667:344590:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ?</startCron>
+        <duration>P1M</duration>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>cda8b96b-cd23-41ab-a51a-756e9adfcd34</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210224104901_cda8b96b-cd23-41ab-a51a-756e9adfcd34_v2.xslt</mappingFile>
+        <masterDataFile>20160407134321_cda8b96b-cd23-41ab-a51a-756e9adfcd34_v5.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading D Transnet CH</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448149:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <lastStart>2021-11-15T18:14:16.057+01:00</lastStart>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>d87f1930-7e05-48ad-8247-266aefd0a673</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810090039_d87f1930-7e05-48ad-8247-266aefd0a673_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810090027_d87f1930-7e05-48ad-8247-266aefd0a673_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.H Total Imbalance Volumes</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <timeseriesKeys>171H.*</timeseriesKeys>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>dba2a8be-b726-4a14-b8b7-ac18c69955e4</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>true</fileUpload>
+        <mappingFile>20210312115800_dba2a8be-b726-4a14-b8b7-ac18c69955e4_v2.xslt</mappingFile>
+        <masterDataFile>20210312115740_dba2a8be-b726-4a14-b8b7-ac18c69955e4_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.A - Update Actual Total Load</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <cronExpression>0 30 11 * * ?</cronExpression>
+        <timeseriesKeys>silo:32595:312088:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P14D</duration>
+        <nextStart>2022-09-02T13:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>dc8ca3f1-42f2-4740-b111-dc7d913601dc</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20151204130147_dc8ca3f1-42f2-4740-b111-dc7d913601dc_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20151204130132_dc8ca3f1-42f2-4740-b111-dc7d913601dc_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.C_WEEK-AHEAD_MAX</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>dddff63b-557c-4967-867d-a3640d173269</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.D_DayAheadPrices_TEST</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>e4e0f98f-6b2e-468c-a3c8-1d74e44a9bfb</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 - Day ahead forecasted cross-zonal capacity - CH AT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 03 * * ?</cronExpression>
+        <timeseriesKeys>silo:32624:867062:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32624:867061:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ? *</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-08-07T10:30:02.177+02:00</lastStart>
+        <nextStart>2022-09-03T05:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>e6e0d5fc-0390-4b28-aa64-f945f71a7a81</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20181115180143_e6e0d5fc-0390-4b28-aa64-f945f71a7a81_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20181115180113_e6e0d5fc-0390-4b28-aa64-f945f71a7a81_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>Cleanup</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <lastStart>2023-07-12T08:34:48.287+02:00</lastStart>
+        <active>true</active>
+        <state>true</state>
+        <businessKey>ea251470-f673-4339-94a6-32fd79e5c350</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>testTimeSeriesName</timeSeriesName>
+        <timeSeriesCategory>FinalNomination</timeSeriesCategory>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>ec8aa065-6db7-4f57-be44-f28c1d9ac1f6</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.E - ACTIVATED BALANCING ENERGY SLR</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 45 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33481:341744:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:33506:341763:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <lastStart>2021-11-14T15:46:18.057+01:00</lastStart>
+        <nextStart>2022-09-02T10:45:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>ed6e1f57-3875-4036-8645-555aee9baa0c</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150821164027_ed6e1f57-3875-4036-8645-555aee9baa0c_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20210210161238_ed6e1f57-3875-4036-8645-555aee9baa0c_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Update Countertrading CH D Transnet</timeSeriesName>
+        <timeSeriesCategory>Congestion Management</timeSeriesCategory>
+        <cronExpression>0 10 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448148:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:10:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>eff2fd55-1ce6-451d-b499-64baa26b17a5</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20160810085613_eff2fd55-1ce6-451d-b499-64baa26b17a5_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160810085602_eff2fd55-1ce6-451d-b499-64baa26b17a5_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>10.1.A Outage</timeSeriesName>
+        <timeSeriesCategory>Outage</timeSeriesCategory>
+        <active>true</active>
+        <state>true</state>
+        <businessKey>f1f4cc5f-5b0f-4649-a1aa-3b2f63fbe9a6</businessKey>
+        <suspended>false</suspended>
+        <fileUpload>false</fileUpload>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>Update 12.1.G AT CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 30 4 * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:314081:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-07-12T10:38:02.173+02:00</lastStart>
+        <nextStart>2022-09-03T06:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>f7dbf2e7-ef0d-4d00-b6bf-12310e184ee6</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150317184322_f7dbf2e7-ef0d-4d00-b6bf-12310e184ee6_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150317184601_f7dbf2e7-ef0d-4d00-b6bf-12310e184ee6_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>17.1.C W A96 Prices of Procured Balancing Reserves</timeSeriesName>
+        <timeSeriesCategory>Balancing</timeSeriesCategory>
+        <cronExpression>0 30 12 ? * TUE</cronExpression>
+        <timeseriesKeys>silo:33162:315742:Calc</timeseriesKeys>
+        <startCron>0 0 23 ? * SU</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-06T14:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>f8314afe-17de-405d-83a4-06558923943d</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20151002150541_f8314afe-17de-405d-83a4-06558923943d_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20210209160906_f8314afe-17de-405d-83a4-06558923943d_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 - Day ahead forecasted cross-zonal capacity - CH DAL</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 03 * * ?</cronExpression>
+        <timeseriesKeys>silo:32624:341252:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32624:312650:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-08-01T13:07:02.057+02:00</lastStart>
+        <nextStart>2022-09-03T05:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start111AAutomatic_DLAProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150120120848_mapping_Start111AAutomatic_DLAProcessID_v3_TSDA4.xslt</mappingFile>
+        <masterDataFile>20181115180430_mapping_Start111AAutomatic_DLAProcessID_v5.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 - Day ahead forecasted cross-zonal capacity - CH FR</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 03 * * ?</cronExpression>
+        <timeseriesKeys>silo:32624:341253:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32624:312651:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-08-01T12:41:02.143+02:00</lastStart>
+        <nextStart>2022-09-03T05:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start111AAutomatic_FProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150120121050_mapping_Start111AAutomatic_FProcessID_v3_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150120121023_mapping_Start111AAutomatic_FProcessID_v4.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 - Day ahead forecasted cross-zonal capacity - CH IT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 03 * * ?</cronExpression>
+        <timeseriesKeys>silo:32624:341254:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32624:312652:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-08-01T12:39:02.063+02:00</lastStart>
+        <nextStart>2022-09-03T05:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start111AAutomatic_IProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150120121246_mapping_Start111AAutomatic_IProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20171120135756_mapping_Start111AAutomatic_IProcessID_v5.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 - Monthly forecasted cross-zonal capacity - CH DLA</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 0 1 1 ? *</cronExpression>
+        <timeseriesKeys>silo:32622:341246:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32622:312644:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ?</startCron>
+        <duration>P1M</duration>
+        <lastStart>2023-07-28T08:58:02.140+02:00</lastStart>
+        <nextStart>2023-01-01T01:00:00+01:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start111CAutomatic_DLAProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150226141242_mapping_Start111CAutomatic_DLAProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20181115181716_mapping_Start111CAutomatic_DLAProcessID_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 - Monthly forecasted cross-zonal capacity - CH FR</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 0 1 1 ? *</cronExpression>
+        <timeseriesKeys>silo:32622:341247:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32622:312645:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1M</duration>
+        <lastStart>2023-07-28T09:02:02.177+02:00</lastStart>
+        <nextStart>2023-01-01T01:00:00+01:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start111CAutomatic_FProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150319093849_mapping_Start111CAutomatic_FProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150319093821_mapping_Start111CAutomatic_FProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>11.1 - Monthly forecasted cross-zonal capacity - CH IT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 0 1 1 ? *</cronExpression>
+        <timeseriesKeys>silo:32622:341248:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32622:312646:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1M</duration>
+        <lastStart>2023-07-12T14:16:02.020+02:00</lastStart>
+        <nextStart>2023-01-01T01:00:00+01:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start111CAutomatic_IProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150226141555_mapping_Start111CAutomatic_IProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150226141545_mapping_Start111CAutomatic_IProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.D - Day ahead prices</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 30 15 * * ?</cronExpression>
+        <timeseriesKeys>silo:32604:312235:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T17:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121DAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20141223153436_mapping_Start121DAutomaticProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20141223153422_mapping_Start121DAutomaticProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.F - Scheduled commercial exchanges - CH DAL</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 17 * * ?</cronExpression>
+        <timeseriesKeys>silo:33423:341263:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T19:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121FCHDALAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150113184654_mapping_Start121FCHDALAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20181115175336_mapping_Start121FCHDALAutomaticProcessID_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.F - Scheduled commercial exchanges - CH FR</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 17 * * ?</cronExpression>
+        <timeseriesKeys>silo:33423:341264:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T19:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121FCHFRAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150113185112_mapping_Start121FCHFRAutomaticProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150602173409_mapping_Start121FCHFRAutomaticProcessID_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.F - Scheduled commercial exchanges - CH IT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 17 * * ?</cronExpression>
+        <timeseriesKeys>silo:33423:341265:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T19:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121FCHITAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150113185244_mapping_Start121FCHITAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20171120140123_mapping_Start121FCHITAutomaticProcessID_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.F - Scheduled commercial exchanges - DAL CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 17 * * ?</cronExpression>
+        <timeseriesKeys>silo:33423:341266:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T19:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121FDALCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150113185444_mapping_Start121FDALCHAutomaticProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20181115175451_mapping_Start121FDALCHAutomaticProcessID_v4.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.F - Scheduled commercial exchanges - FR CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 17 * * ?</cronExpression>
+        <timeseriesKeys>silo:33423:341267:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T19:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121FFRCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150113185613_mapping_Start121FFRCHAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150602173727_mapping_Start121FFRCHAutomaticProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.F - Scheduled commercial exchanges - IT CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 17 * * ?</cronExpression>
+        <timeseriesKeys>silo:33423:341268:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <lastStart>2023-07-12T14:15:02.227+02:00</lastStart>
+        <nextStart>2022-09-02T19:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121FITCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150113185713_mapping_Start121FITCHAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20171120140408_mapping_Start121FITCHAutomaticProcessID_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.G - Physical flows - AT CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:314081:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <lastStart>2021-11-14T16:05:01.047+01:00</lastStart>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121GATCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150226140759_mapping_Start121GATCHAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150226140743_mapping_Start121GATCHAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.G - Physical flows - CH AT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:314080:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121GCHATAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150226140925_mapping_Start121GCHATAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150226140917_mapping_Start121GCHATAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.G - Physical flows - CH DAL</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:314082:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>false</state>
+        <businessKey>mapping_Start121GCHDALAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150112175315_mapping_Start121GCHDALAutomaticProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150112175257_mapping_Start121GCHDALAutomaticProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.G - Physical flows - CH FR</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:315573:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121GCHFRAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150112182435_mapping_Start121GCHFRAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150112182425_mapping_Start121GCHFRAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.G - Physical flows - CH IT</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:341787:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <lastStart>2021-11-14T16:02:31.037+01:00</lastStart>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121GCHITAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150112183054_mapping_Start121GCHITAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150202135838_mapping_Start121GCHITAutomaticProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.G - Physical flows - DAL CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:315572:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>false</state>
+        <businessKey>mapping_Start121GDALCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150112182029_mapping_Start121GDALCHAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150113142522_mapping_Start121GDALCHAutomaticProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.G - Physical flows - FR CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:341786:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121GFRCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150112182629_mapping_Start121GFRCHAutomaticProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150113142622_mapping_Start121GFRCHAutomaticProcessID_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>12.1.G - Physical flows - IT CH</timeSeriesName>
+        <timeSeriesCategory>Transmission</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:32941:341788:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start121GITCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150112183302_mapping_Start121GITCHAutomaticProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150202135939_mapping_Start121GITCHAutomaticProcessID_v4.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Countertrading - CH DAL</timeSeriesName>
+        <timeSeriesCategory>Congestion</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:1083341:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start131BCHDALAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150205142311_mapping_Start131BCHDALAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150205142303_mapping_Start131BCHDALAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Countertrading - CH FR</timeSeriesName>
+        <timeSeriesCategory>Congestion</timeSeriesCategory>
+        <cronExpression>0 1 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448152:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:01:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start131BCHFRAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150205142412_mapping_Start131BCHFRAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160308104730_mapping_Start131BCHFRAutomaticProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Countertrading - CH IT</timeSeriesName>
+        <timeSeriesCategory>Congestion</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448154:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start131BCHITAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150205142511_mapping_Start131BCHITAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160308102558_mapping_Start131BCHITAutomaticProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Countertrading - DAL CH</timeSeriesName>
+        <timeSeriesCategory>Congestion</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:1083342:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>false</state>
+        <businessKey>mapping_Start131BDALCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150205143147_mapping_Start131BDALCHAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150205143139_mapping_Start131BDALCHAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Countertrading - FR CH</timeSeriesName>
+        <timeSeriesCategory>Congestion</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448153:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start131BFRCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150205143435_mapping_Start131BFRCHAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150205143421_mapping_Start131BFRCHAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>13.1.B - Countertrading - IT CH</timeSeriesName>
+        <timeSeriesCategory>Congestion</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:33674:448155:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start131BITCHAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150205143530_mapping_Start131BITCHAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20160308103545_mapping_Start131BITCHAutomaticProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>14.1.D - Day ahead generation forecasts for wind and solar - Solar</timeSeriesName>
+        <timeSeriesCategory>Generation</timeSeriesCategory>
+        <cronExpression>0 30 9 * * ?</cronExpression>
+        <timeseriesKeys>silo:33538:341817:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ?</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T11:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start141DsolarAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210107123746_mapping_Start141DsolarAutomaticProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20141223155448_mapping_Start141DsolarAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>14.1.D - Day ahead generation forecasts for wind and solar - Wind</timeSeriesName>
+        <timeSeriesCategory>Generation</timeSeriesCategory>
+        <cronExpression>0 30 9 * * ?</cronExpression>
+        <timeseriesKeys>silo:33538:341816:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T11:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start141DwindAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210107123837_mapping_Start141DwindAutomaticProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20141223155710_mapping_Start141DwindAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>16.1.C - Aggregated generation per type - Solar</timeSeriesName>
+        <timeSeriesCategory>Generation</timeSeriesCategory>
+        <cronExpression>0 00 9 * * ?</cronExpression>
+        <timeseriesKeys>silo:33661:343980:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <lastStart>2021-11-14T10:02:46.063+01:00</lastStart>
+        <nextStart>2022-09-02T11:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start161CsolarAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150105170109_mapping_Start161CsolarAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150105170034_mapping_Start161CsolarAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>16.1.C - Aggregated generation per type - Wind</timeSeriesName>
+        <timeSeriesCategory>Generation</timeSeriesCategory>
+        <cronExpression>0 00 9 * * ?</cronExpression>
+        <timeseriesKeys>silo:33661:343983:Calc</timeseriesKeys>
+        <startCron>0 0 22 * * ?</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-02T11:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start161CwindAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20150105173433_mapping_Start161CwindAutomaticProcessID_v2_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150105173415_mapping_Start161CwindAutomaticProcessID_v2.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.A - Total load per biding zone per market time unit</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <cronExpression>0 0 * * * ?</cronExpression>
+        <timeseriesKeys>silo:107967:702141:Calc</timeseriesKeys>
+        <startCron>0 0 * * * ? *</startCron>
+        <duration>PT60M</duration>
+        <nextStart>2022-09-02T10:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start61AAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20141217115148_mapping_Start61AAutomaticProcessID_v3_TSDA4.xslt</mappingFile>
+        <masterDataFile>20150113131040_mapping_Start61AAutomaticProcessID_v13.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.B - Day-Ahead forecast of the total load per market time unit</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <cronExpression>0 40 05 * * ?</cronExpression>
+        <timeseriesKeys>silo:39328:461202:Calc</timeseriesKeys>
+        <startCron>0 0 23 * * ? *</startCron>
+        <duration>P1D</duration>
+        <nextStart>2022-09-03T07:40:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start61BAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210205124025_mapping_Start61BAutomaticProcessID_v4.xslt</mappingFile>
+        <masterDataFile>20210205121306_mapping_Start61BAutomaticProcessID_v8.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.C - Week-Ahead total load forecast per day</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <cronExpression>0 30 13 ? * FRI *</cronExpression>
+        <timeseriesKeys>silo:32903:313587:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32903:313588:Calc</timeseriesKeys>
+        <startCron>0 0 23 ? * SUN *</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-02T15:30:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start61CAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210210150617_mapping_Start61CAutomaticProcessID_v7.xslt</mappingFile>
+        <masterDataFile>20210210150605_mapping_Start61CAutomaticProcessID_v8.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.D - Month-Ahead total load forecast per biddingzone</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <cronExpression>0 0 14 L-4 * ?</cronExpression>
+        <timeseriesKeys>silo:32904:313589:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32904:313590:Calc</timeseriesKeys>
+        <startCron>0 0 00 ? * MON#1 *</startCron>
+        <duration>P7D</duration>
+        <nextStart>2022-09-26T16:00:00+02:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start61DAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20210209165841_mapping_Start61DAutomaticProcessID_v4.xslt</mappingFile>
+        <masterDataFile>20210209181313_mapping_Start61DAutomaticProcessID_v8.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>6.1.E - Year-Ahead total load forecast per week</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <cronExpression>0 0 10 15 12 ? *</cronExpression>
+        <timeseriesKeys>silo:32905:313591:Calc</timeseriesKeys>
+        <timeseriesKeys>silo:32905:313592:Calc</timeseriesKeys>
+        <startCron>0 0 10 15 12 ? *</startCron>
+        <duration></duration>
+        <nextStart>2022-12-15T11:00:00+01:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start61EAutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20141217122932_mapping_Start61EAutomaticProcessID_v1_TSDA4.xslt</mappingFile>
+        <masterDataFile>20141217122918_mapping_Start61EAutomaticProcessID_v1.xml</masterDataFile>
+    </timeSeriesJobs>
+    <timeSeriesJobs>
+        <timeSeriesName>8.1 - Year-Ahead forecast margin</timeSeriesName>
+        <timeSeriesCategory>Load</timeSeriesCategory>
+        <cronExpression>0 0 10 15 12 ? *</cronExpression>
+        <timeseriesKeys>silo:155774:1090930:raw</timeseriesKeys>
+        <startCron>0 0 12 15 12 ? *</startCron>
+        <duration>P1Y</duration>
+        <nextStart>2022-12-15T11:00:00+01:00</nextStart>
+        <active>false</active>
+        <state>true</state>
+        <businessKey>mapping_Start81AutomaticProcessID</businessKey>
+        <suspended>true</suspended>
+        <fileUpload>false</fileUpload>
+        <mappingFile>20141223112246_mapping_Start81AutomaticProcessID_v3_TSDA4.xslt</mappingFile>
+        <masterDataFile>20141223112230_mapping_Start81AutomaticProcessID_v3.xml</masterDataFile>
+    </timeSeriesJobs>
+</TimeSeriesJobList>
