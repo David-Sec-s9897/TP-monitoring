@@ -3,6 +3,7 @@ package com.secdavid.tpmonitoring.tasks;
 import com.secdavid.tpmonitoring.entsoe.EntsoeRestClient;
 import com.secdavid.tpmonitoring.model.TpProcess;
 import com.secdavid.tpmonitoring.model.entsoe.DefaultMarketDocument;
+import com.secdavid.tpmonitoring.model.entsoe.TimeSeries;
 import com.secdavid.tpmonitoring.services.TPProcessService;
 import jakarta.ejb.Schedule;
 import jakarta.ejb.Stateless;
@@ -40,6 +41,22 @@ public class BackgroundTaskManager {
             try {
                 DefaultMarketDocument defDoc = null;
 
+                if(pr.getTimeSeriesList().size() >= 2) {
+                    for (int i = 0; i < pr.getTimeSeriesList().size(); i++) {
+                        TimeSeries current = pr.getTimeSeriesList().get(i);
+                        //TODO compare time, flow direction and business type
+                        for (int j = 1; j < pr.getTimeSeriesList().size(); j++) {
+                            TimeSeries next = pr.getTimeSeriesList().get(j);
+                            if (current.compare(next)) {
+                                current.getPeriod().getTimeInterval().setEnd(next.getPeriod().timeInterval.getEnd());
+                                pr.getTimeSeriesList().remove(j);
+                            } else {
+                                break;
+                            }
+                        }
+                    }
+                }
+
                 switch (pr.getCategory()) {
                     case BALANCING:
                         ProcessBalancingMarketDocument processBalancing = new ProcessBalancingMarketDocument(restClient);
@@ -67,6 +84,5 @@ public class BackgroundTaskManager {
         }
         processService.inrementRuns();
     }
-
 
 }

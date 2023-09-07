@@ -74,6 +74,16 @@ public class TimeSeries {
         this.complete = complete;
     }
 
+    public boolean compare(TimeSeries next){
+        if(this.getPeriod().getTimeInterval().getEnd().equals(next.getPeriod().timeInterval.getStart()) && this.getFlowDirectionDirection().equals(next.getFlowDirectionDirection()) && this.getBusinessType().equals(next.getBusinessType())){
+            return true;
+        } else if (this.getPeriod().getTimeInterval().getEnd().plusMinutes(1l).equals(next.getPeriod().timeInterval.getStart()) && this.getFlowDirectionDirection().equals(next.getFlowDirectionDirection()) && this.getBusinessType().equals(next.getBusinessType())) {
+            return true;
+        } else{
+            return false;
+        }
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
