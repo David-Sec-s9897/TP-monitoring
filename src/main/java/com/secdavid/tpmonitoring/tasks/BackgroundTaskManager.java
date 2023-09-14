@@ -31,31 +31,16 @@ public class BackgroundTaskManager {
     EntsoeRestClient restClient;
 
 
-    @Schedule(hour = "*", minute = "*/30", info = "Every 30 minutes timer")
+    @Schedule(hour = "*", minute = "*/5", info = "Every 30 minutes timer")
     public void load() throws InterruptedException {
         List<TpProcess> processes = processService.getProcesses();
         ZonedDateTime end = LocalDateTime.now().withHour(22).withMinute(0).withSecond(0).atZone(ZoneId.of("UTC"));
-        ZonedDateTime start = end.minusDays(processService.getRuns()>0?1:5);
+        ZonedDateTime start = end.minusDays(processService.getRuns() > 0 ? 1 : 5);
+
 
         for (TpProcess pr : processes) {
             try {
                 DefaultMarketDocument defDoc = null;
-
-                if(pr.getTimeSeriesList().size() >= 2) {
-                    for (int i = 0; i < pr.getTimeSeriesList().size(); i++) {
-                        TimeSeries current = pr.getTimeSeriesList().get(i);
-                        //TODO compare time, flow direction and business type
-                        for (int j = 1; j < pr.getTimeSeriesList().size(); j++) {
-                            TimeSeries next = pr.getTimeSeriesList().get(j);
-                            if (current.compare(next)) {
-                                current.getPeriod().getTimeInterval().setEnd(next.getPeriod().timeInterval.getEnd());
-                                pr.getTimeSeriesList().remove(j);
-                            } else {
-                                break;
-                            }
-                        }
-                    }
-                }
 
                 switch (pr.getCategory()) {
                     case BALANCING:
@@ -75,7 +60,9 @@ public class BackgroundTaskManager {
                         defDoc = processLoad.process(pr.getMasterData(), start, end);
                         break;
                 }
+
                 pr.getTimeSeriesList().addAll(defDoc.getTimeSeries());
+                mergeTimeSeries(pr.getTimeSeriesList());
             } catch (Exception e) {
                 LOGGER.log(Level.SEVERE, "Process failed: {0}", pr);
                 e.printStackTrace();
@@ -83,6 +70,26 @@ public class BackgroundTaskManager {
             Thread.sleep(10000);
         }
         processService.inrementRuns();
+    }
+
+    //replace intervals that are regularly updated with updated ones
+    private List<TimeSeries> mergeTimeSeries(List<TimeSeries> list) {
+        System.out.println(list);
+        if (list.size() >= 2) {
+            for (int i = 0; i < list.size() - 1; i++) {
+                TimeSeries current = list.get(i);
+                for (int j = 1; j < list.size(); j++) {
+                    TimeSeries next = list.get(j);
+                    if (current.compare(next)) {
+                        current.getPeriod().getTimeInterval().setEnd(next.getPeriod().timeInterval.getEnd());
+                        list.remove(j);
+                    } else {
+                        break;
+                    }
+                }
+            }
+        }
+        return list;
     }
 
 }

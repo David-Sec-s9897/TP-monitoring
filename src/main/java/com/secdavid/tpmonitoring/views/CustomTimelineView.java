@@ -65,13 +65,15 @@ public class CustomTimelineView implements Serializable {
                 if (!set.contains(startEndTime)) {
                     set.add(startEndTime);
                     TimelineEvent event = TimelineEvent.builder()
-                            .data("Avialable")
+                            .data("Available")
                             .startDate(ts.getPeriod().timeInterval.start.toLocalDateTime())
                             .endDate(ts.getPeriod().timeInterval.end.toLocalDateTime())
                             .editable(false)
                             .group(process.getName())
                             .styleClass("available")
                             .build();
+                    System.out.println(ts.getPeriod().timeInterval.start.toLocalDateTime()+", "+ts.getPeriod().timeInterval.end.toLocalDateTime());
+                    //System.out.println(ts);
                     model.add(event);
                 }
             }
@@ -80,6 +82,7 @@ public class CustomTimelineView implements Serializable {
 
 
     private TimelineEvent createUnavailableEvent(LocalDateTime start, LocalDateTime end, String group) {
+        System.out.println("Unavailable created");
         return TimelineEvent.builder()
                 .data("Unavailable")
                 .startDate(start)

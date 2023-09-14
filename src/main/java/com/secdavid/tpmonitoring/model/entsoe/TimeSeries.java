@@ -77,7 +77,9 @@ public class TimeSeries {
     public boolean compare(TimeSeries next){
         if(this.getPeriod().getTimeInterval().getEnd().equals(next.getPeriod().timeInterval.getStart()) && this.getFlowDirectionDirection().equals(next.getFlowDirectionDirection()) && this.getBusinessType().equals(next.getBusinessType())){
             return true;
-        } else if (this.getPeriod().getTimeInterval().getEnd().plusMinutes(1l).equals(next.getPeriod().timeInterval.getStart()) && this.getFlowDirectionDirection().equals(next.getFlowDirectionDirection()) && this.getBusinessType().equals(next.getBusinessType())) {
+        } else if (this.getPeriod().getTimeInterval().getEnd().isAfter(next.getPeriod().timeInterval.getStart()) && this.getFlowDirectionDirection().equals(next.getFlowDirectionDirection()) && this.getBusinessType().equals(next.getBusinessType())) {
+            return true;
+        } else if (this.getPeriod().getTimeInterval().getEnd().plusMinutes(1l).isAfter(next.getPeriod().timeInterval.getStart())) {
             return true;
         } else{
             return false;

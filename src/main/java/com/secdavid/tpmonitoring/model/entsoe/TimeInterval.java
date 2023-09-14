@@ -26,4 +26,12 @@ public class TimeInterval {
     public void setEnd(ZonedDateTime end) {
         this.end = end;
     }
+
+    @Override
+    public String toString() {
+        return "TimeInterval{" +
+                "start=" + start +
+                ", end=" + end +
+                '}';
+    }
 }
