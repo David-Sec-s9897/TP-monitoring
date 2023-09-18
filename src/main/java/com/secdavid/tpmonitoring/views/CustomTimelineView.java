@@ -72,7 +72,7 @@ public class CustomTimelineView implements Serializable {
                             .group(process.getName())
                             .styleClass("available")
                             .build();
-                    System.out.println(ts.getPeriod().timeInterval.start.toLocalDateTime()+", "+ts.getPeriod().timeInterval.end.toLocalDateTime());
+                    //System.out.println(ts.getPeriod().timeInterval.start.toLocalDateTime()+", "+ts.getPeriod().timeInterval.end.toLocalDateTime());
                     //System.out.println(ts);
                     model.add(event);
                 }
@@ -84,7 +84,7 @@ public class CustomTimelineView implements Serializable {
     private TimelineEvent createUnavailableEvent(LocalDateTime start, LocalDateTime end, String group) {
         System.out.println("Unavailable created");
         return TimelineEvent.builder()
-                .data("Unavailable")
+                .data(String.format("Unavailable %s - %s", start.toString(), end.toString()))
                 .startDate(start)
                 .endDate(end)
                 .editable(false)

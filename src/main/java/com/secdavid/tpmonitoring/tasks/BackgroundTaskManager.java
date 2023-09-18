@@ -18,6 +18,8 @@ import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static com.secdavid.tpmonitoring.util.TimeSeriesUtils.*;
+
 @Stateless
 @TransactionManagement(TransactionManagementType.BEAN)
 public class BackgroundTaskManager {
@@ -31,7 +33,7 @@ public class BackgroundTaskManager {
     EntsoeRestClient restClient;
 
 
-    @Schedule(hour = "*", minute = "*/5", info = "Every 30 minutes timer")
+    @Schedule(hour = "*", minute = "*/15", info = "Every 30 minutes timer")
     public void load() throws InterruptedException {
         List<TpProcess> processes = processService.getProcesses();
         ZonedDateTime end = LocalDateTime.now().withHour(22).withMinute(0).withSecond(0).atZone(ZoneId.of("UTC"));
@@ -60,9 +62,21 @@ public class BackgroundTaskManager {
                         defDoc = processLoad.process(pr.getMasterData(), start, end);
                         break;
                 }
+                if(pr.getTimeSeriesList().isEmpty()){
+                    if(!defDoc.getTimeSeries().isEmpty()){
+                        mergeTimeSeries(defDoc.getTimeSeries());
+                        pr.getTimeSeriesList().addAll(defDoc.getTimeSeries());
+                    }
+                }else{
+                    if(!defDoc.getTimeSeries().isEmpty()){
+                        deleteDownloaded(pr.getTimeSeriesList(), end);
+                        mergeTimeSeries(defDoc.getTimeSeries());
+                        mergeTimeSeries(pr.getTimeSeriesList());
+                        defDoc.getTimeSeries().get(0).getPeriod().getPoint().remove(0);
+                        pr.getTimeSeriesList().get(0).getPeriod().getPoint().addAll(defDoc.getTimeSeries().get(0).getPeriod().getPoint());
+                    }
+                }
 
-                pr.getTimeSeriesList().addAll(defDoc.getTimeSeries());
-                mergeTimeSeries(pr.getTimeSeriesList());
             } catch (Exception e) {
                 LOGGER.log(Level.SEVERE, "Process failed: {0}", pr);
                 e.printStackTrace();
@@ -70,26 +84,10 @@ public class BackgroundTaskManager {
             Thread.sleep(10000);
         }
         processService.inrementRuns();
+        LOGGER.log(Level.INFO, "Process information download finished.");
     }
 
-    //replace intervals that are regularly updated with updated ones
-    private List<TimeSeries> mergeTimeSeries(List<TimeSeries> list) {
-        System.out.println(list);
-        if (list.size() >= 2) {
-            for (int i = 0; i < list.size() - 1; i++) {
-                TimeSeries current = list.get(i);
-                for (int j = 1; j < list.size(); j++) {
-                    TimeSeries next = list.get(j);
-                    if (current.compare(next)) {
-                        current.getPeriod().getTimeInterval().setEnd(next.getPeriod().timeInterval.getEnd());
-                        list.remove(j);
-                    } else {
-                        break;
-                    }
-                }
-            }
-        }
-        return list;
-    }
+
+
 
 }
