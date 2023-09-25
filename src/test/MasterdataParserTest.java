@@ -16,7 +16,6 @@ public class MasterdataParserTest {
     public void testMasterdataParser() throws Exception {
         InputStream masterdataStream = MasterdataParserTest.class.getResourceAsStream("masterdata-transmission.xml");
         List<ParsedMasterData> out = MasterdataParser.parseMasterdata(masterdataStream);
-        System.out.println(out.get(0).toString());
         assertNotNull(out);
     }
 

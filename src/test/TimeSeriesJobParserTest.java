@@ -14,7 +14,6 @@ public class TimeSeriesJobParserTest {
         InputStream resource = TimeSeriesJobParserTest.class.getResourceAsStream("jobs.xml");
         List<TimeSeriesJob> list = TimeSeriesJobParser.parseDocument(resource);
         for(TimeSeriesJob job: list){
-            System.out.println(job.toString());
         }
         assertNotNull(list);
     }

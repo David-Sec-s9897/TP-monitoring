@@ -7,12 +7,15 @@ import jakarta.annotation.PostConstruct;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Named;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
 @Named
 @ApplicationScoped
-public class TPProcessService {
+public class TPProcessService implements Serializable {
+
+    private static final long serialVersionUID = -5451417222777142919L;
 
     List<TpProcess> processes;
     int runs = 0;

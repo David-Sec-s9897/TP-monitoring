@@ -2,9 +2,8 @@ package com.secdavid.tpmonitoring.model.entsoe;
 
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
-import java.util.Date;
 
-public class TimeInterval {
+public class TimeInterval implements Comparable<TimeInterval> {
 
     public static DateTimeFormatter FORMAT = DateTimeFormatter.ISO_ZONED_DATE_TIME;
 
@@ -33,5 +32,32 @@ public class TimeInterval {
                 "start=" + start +
                 ", end=" + end +
                 '}';
+    }
+
+    @Override
+    public int compareTo(TimeInterval that) {
+        if (this.getStart().compareTo(that.start) != 0) {
+            return this.getStart().compareTo(that.start);
+        } else {
+            return this.getEnd().compareTo(that.end);
+        }
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (!(o instanceof TimeInterval)) return false;
+
+        TimeInterval that = (TimeInterval) o;
+
+        if (!start.equals(that.start)) return false;
+        return end.equals(that.end);
+    }
+
+    @Override
+    public int hashCode() {
+        int result = start.hashCode();
+        result = 31 * result + end.hashCode();
+        return result;
     }
 }

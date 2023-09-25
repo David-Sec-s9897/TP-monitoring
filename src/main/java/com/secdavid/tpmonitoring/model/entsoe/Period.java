@@ -2,7 +2,7 @@ package com.secdavid.tpmonitoring.model.entsoe;
 
 import java.util.List;
 
-public class Period {
+public class Period{
     public TimeInterval timeInterval;
     public String resolution;
     public List<Point> Point;
