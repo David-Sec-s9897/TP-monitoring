@@ -32,7 +32,7 @@ public class BackgroundTaskManager {
     EntsoeRestClient restClient;
 
 
-    @Schedule(hour = "*", minute = "*/5", info = "Every 30 minutes timer")
+    @Schedule(hour = "*", minute = "*/30", info = "Every 30 minutes timer")
     public void load() throws InterruptedException {
         List<TpProcess> processes = processService.getProcesses();
         ZonedDateTime end = LocalDateTime.now().withHour(22).withMinute(0).withSecond(0).atZone(ZoneId.of("UTC"));

@@ -52,7 +52,8 @@ public class CustomTimelineView implements Serializable {
             if (process.getAvailableTimeIntervals().size() > 1) {
                 List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals());
                 for (TimeInterval missing : missingIntervals) {
-                    buildUnAvailableTimeLineEvents(missing.start, missing.end, process.getName());
+                    TimelineEvent event = buildUnAvailableTimeLineEvents(missing.start, missing.end, process.getName());
+                    model.add(event);
                 }
             }
         }
@@ -60,7 +61,7 @@ public class CustomTimelineView implements Serializable {
 
     private TimelineEvent buildAvailableTimeLineEvent(ZonedDateTime start, ZonedDateTime end, String name) {
         return TimelineEvent.builder()
-                .data("Available")
+                .data(String.format("Available %s - %s", start.toString(), end.toString()))
                 .startDate(start.toLocalDateTime())
                 .endDate(end.toLocalDateTime())
                 .editable(false)
