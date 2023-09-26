@@ -1,6 +1,7 @@
 package com.secdavid.tpmonitoring.parsers;
 
 import com.secdavid.tpmonitoring.model.entsoe.*;
+import com.secdavid.tpmonitoring.util.DateTimeUtils;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionManagement;
 import jakarta.ejb.TransactionManagementType;
@@ -32,12 +33,12 @@ public class TransmissionParser extends ParserBase {
 
         Element periodTimeInterval = (Element) root.getElementsByTagName("time_Period.timeInterval").item(0);
 
-        if(periodTimeInterval != null) {
+        if (periodTimeInterval != null) {
             String periodTimeIntervalStart = getElementValue(periodTimeInterval, "start");
             String periodTimeIntervalEnd = getElementValue(periodTimeInterval, "end");
             PeriodTimeInterval periodTimeInterval1 = new PeriodTimeInterval();
-            periodTimeInterval1.setStart(ZonedDateTime.parse(periodTimeIntervalStart, TimeInterval.FORMAT));
-            periodTimeInterval1.setEnd(ZonedDateTime.parse(periodTimeIntervalEnd, TimeInterval.FORMAT));
+            periodTimeInterval1.setStart(ZonedDateTime.parse(periodTimeIntervalStart, DateTimeUtils.getZonedDateTimeFormatter()));
+            periodTimeInterval1.setEnd(ZonedDateTime.parse(periodTimeIntervalEnd, DateTimeUtils.getZonedDateTimeFormatter()));
             defaultMarketDocument.setPeriodTimeInterval(periodTimeInterval1);
 
             NodeList timeSeriesList = root.getElementsByTagName("TimeSeries");
@@ -73,8 +74,8 @@ public class TransmissionParser extends ParserBase {
                     Duration duration = Duration.parse(resolution);
 
                     TimeInterval timeInterval = new TimeInterval();
-                    timeInterval.setStart(ZonedDateTime.parse(start, TimeInterval.FORMAT));
-                    timeInterval.setEnd(ZonedDateTime.parse(end, TimeInterval.FORMAT));
+                    timeInterval.setStart(ZonedDateTime.parse(start, DateTimeUtils.getZonedDateTimeFormatter()));
+                    timeInterval.setEnd(ZonedDateTime.parse(end, DateTimeUtils.getZonedDateTimeFormatter()));
                     period.setTimeInterval(timeInterval);
                     period.setResolution(resolution);
 
@@ -101,7 +102,7 @@ public class TransmissionParser extends ParserBase {
 
                 }
             }
-        }else{
+        } else {
             handleNoParentElement((Element) root.getElementsByTagName("Reason").item(0));
         }
         defaultMarketDocument.setTimeSeries(timeSeriesArrayList);

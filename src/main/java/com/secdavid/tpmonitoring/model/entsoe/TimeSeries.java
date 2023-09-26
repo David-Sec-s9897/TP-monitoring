@@ -74,16 +74,12 @@ public class TimeSeries {
         this.complete = complete;
     }
 
-    public boolean compare(TimeSeries next){
-        if(this.getPeriod().getTimeInterval().getEnd() == (next.getPeriod().timeInterval.getStart()) /*&& this.getFlowDirectionDirection().equals(next.getFlowDirectionDirection()) && this.getBusinessType().equals(next.getBusinessType())*/){
+    public boolean compare(TimeSeries next) {
+        if (this.getPeriod().getTimeInterval().getEnd() == (next.getPeriod().timeInterval.getStart()) /*&& this.getFlowDirectionDirection().equals(next.getFlowDirectionDirection()) && this.getBusinessType().equals(next.getBusinessType())*/) {
             return true;
         } else if (this.getPeriod().getTimeInterval().getEnd().isAfter(next.getPeriod().timeInterval.getStart())/* && this.getFlowDirectionDirection().equals(next.getFlowDirectionDirection()) && this.getBusinessType().equals(next.getBusinessType())*/) {
             return true;
-        } else if (this.getPeriod().getTimeInterval().getEnd().plusMinutes(1l).isAfter(next.getPeriod().timeInterval.getStart())) {
-            return true;
-        } else{
-            return false;
-        }
+        } else return this.getPeriod().getTimeInterval().getEnd().plusMinutes(1l).isAfter(next.getPeriod().timeInterval.getStart());
     }
 
     @Override

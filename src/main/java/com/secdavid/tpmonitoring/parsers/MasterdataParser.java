@@ -67,7 +67,7 @@ public class MasterdataParser extends ParserBase {
                 parsedMasterData.setTimeSeriesList(parsedTimeSeriesList);
                 masterdataArray.add(parsedMasterData);
             }
-        }else {
+        } else {
             handleNoParentElement((Element) root.getElementsByTagName("Reason").item(0));
         }
         return masterdataArray;

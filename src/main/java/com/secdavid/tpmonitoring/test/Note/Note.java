@@ -1,7 +1,10 @@
 package com.secdavid.tpmonitoring.test.Note;
 
 
-import jakarta.xml.bind.annotation.*;
+import jakarta.xml.bind.annotation.XmlAccessType;
+import jakarta.xml.bind.annotation.XmlAccessorType;
+import jakarta.xml.bind.annotation.XmlAttribute;
+import jakarta.xml.bind.annotation.XmlRootElement;
 
 /**
  * <note>
@@ -17,7 +20,8 @@ public class Note {
     @XmlAttribute(name = "to")
     String to;
 
-    public Note() {};
+    public Note() {
+    }
 
 
     @Override

@@ -61,7 +61,7 @@ public class ParserBase {
         }
     }
 
-    static void handleNoParentElement(Element periodTimeInterval){
+    static void handleNoParentElement(Element periodTimeInterval) {
         String code = getElementValue(periodTimeInterval, "code");
         String text = getElementValue(periodTimeInterval, "text");
         LOGGER.log(Level.SEVERE, "Code: " + code + " Text: " + text);

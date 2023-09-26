@@ -36,7 +36,6 @@ public class BackgroundTaskManager {
     MailService mailService;
 
 
-
     @Schedule(hour = "*", minute = "*/30", info = "Every 30 minutes timer")
     public void load() throws InterruptedException {
         List<TpProcess> processes = processService.getProcesses();
@@ -69,7 +68,7 @@ public class BackgroundTaskManager {
                         LOGGER.log(Level.SEVERE, String.format("Process %s has unsupported category %s", process.getName(), process.getCategory()));
                         break;
                 }
-                if( receivedDocument != null){
+                if (receivedDocument != null) {
                     List<TimeInterval> data = receivedDocument.getTimeSeries().stream().map(timeSeries -> timeSeries.getPeriod().getTimeInterval()).toList();
                     process.setAvailableTimeIntervals(TimeSeriesUtils.mergeTimeIntervals(process.getAvailableTimeIntervals(), data));
                 }
@@ -90,8 +89,6 @@ public class BackgroundTaskManager {
         System.out.println("tryToSendMail");
         mailService.send("david.sec@uhk.cz", "Jboss test", "Lorem Ipsum");
     }
-
-
 
 
 }

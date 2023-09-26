@@ -9,6 +9,6 @@ public enum Category {
     OUTAGE,
     CONGESTION,
     TRANSMISSION,
-    UNKNOWN;
+    UNKNOWN
 
 }

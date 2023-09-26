@@ -1,7 +1,6 @@
 package com.secdavid.tpmonitoring.parsers;
 
 import com.secdavid.tpmonitoring.enums.Category;
-import com.secdavid.tpmonitoring.model.entsoe.DefaultMarketDocument;
 import com.secdavid.tpmonitoring.model.entsoe.TimeSeriesJob;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionManagement;
@@ -26,12 +25,11 @@ public class TimeSeriesJobParser extends ParserBase {
         Document doc = builder.parse(inputStream);
 
         Element root = doc.getDocumentElement();
-        DefaultMarketDocument defaultMarketDocument = new DefaultMarketDocument();
         List<TimeSeriesJob> timeSeriesArrayList = new ArrayList<>();
 
         NodeList timeseriesList = root.getElementsByTagName("timeSeriesJobs");
 
-        if(timeseriesList != null) {
+        if (timeseriesList != null) {
             for (int i = 0; i < timeseriesList.getLength(); i++) {
                 TimeSeriesJob timeSeriesJob = new TimeSeriesJob();
                 Element timeSeriesElement = (Element) timeseriesList.item(i);
@@ -68,7 +66,7 @@ public class TimeSeriesJobParser extends ParserBase {
 
                 timeSeriesArrayList.add(timeSeriesJob);
             }
-        }else{
+        } else {
             handleNoParentElement((Element) root.getElementsByTagName("Reason").item(0));
         }
         return timeSeriesArrayList;

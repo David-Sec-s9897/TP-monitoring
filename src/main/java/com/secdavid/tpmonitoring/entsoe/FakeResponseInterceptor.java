@@ -17,6 +17,7 @@ public class FakeResponseInterceptor implements Interceptor {
             "  <heading>Reminder</heading>\n" +
             "  <body>Don't forget me this weekend!</body>\n" +
             "</note>";
+
     @Override
     public Response intercept(Chain chain) throws IOException {
         final Request request = chain.request();

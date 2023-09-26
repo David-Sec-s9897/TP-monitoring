@@ -6,6 +6,7 @@ import com.secdavid.tpmonitoring.model.MasterData;
 import com.secdavid.tpmonitoring.model.entsoe.DefaultMarketDocument;
 import com.secdavid.tpmonitoring.parsers.BalancingParser;
 import com.secdavid.tpmonitoring.parsers.TransmissionParser;
+import com.secdavid.tpmonitoring.util.DateTimeUtils;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 import okhttp3.ResponseBody;
@@ -21,17 +22,12 @@ import java.util.logging.Logger;
 
 @Stateless
 public abstract class ProcessDocument {
+    private static final String SECURITY_TOKEN = "39cc0b75-19ef-430e-8f98-3bdfec62079f";
+    private static final Logger LOGGER = Logger.getLogger(ProcessDocument.class.getName());
     @Inject
     EntsoeRestClient restClient;
-
     Category category;
-
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmm");
-
-    private static final String SECURITY_TOKEN = "39cc0b75-19ef-430e-8f98-3bdfec62079f";
-
-    private static final Logger LOGGER = Logger.getLogger(ProcessDocument.class.getName());
-
+    DateTimeFormatter formatter = DateTimeUtils.getEntsoeRequestDateFormat();
 
     public DefaultMarketDocument process(MasterData masterData, ZonedDateTime start, ZonedDateTime end) throws Exception {
         InputStream is = callEntroe(masterData, start, end);

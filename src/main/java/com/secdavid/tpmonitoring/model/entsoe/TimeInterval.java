@@ -1,11 +1,8 @@
 package com.secdavid.tpmonitoring.model.entsoe;
 
 import java.time.ZonedDateTime;
-import java.time.format.DateTimeFormatter;
 
 public class TimeInterval implements Comparable<TimeInterval> {
-
-    public static DateTimeFormatter FORMAT = DateTimeFormatter.ISO_ZONED_DATE_TIME;
 
     public ZonedDateTime start;
     public ZonedDateTime end;

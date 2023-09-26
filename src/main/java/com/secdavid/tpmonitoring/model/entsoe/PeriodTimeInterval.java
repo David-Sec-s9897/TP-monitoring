@@ -1,7 +1,6 @@
 package com.secdavid.tpmonitoring.model.entsoe;
 
 import java.time.ZonedDateTime;
-import java.util.Date;
 
 public class PeriodTimeInterval {
     public ZonedDateTime start;

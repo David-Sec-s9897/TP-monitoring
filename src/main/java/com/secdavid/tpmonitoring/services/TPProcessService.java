@@ -15,11 +15,10 @@ import java.util.List;
 @ApplicationScoped
 public class TPProcessService implements Serializable {
 
+    public static final String CONTROL_AREA_DOMAIN = "10YCH-SWISSGRIDZ";
     private static final long serialVersionUID = -5451417222777142919L;
-
     List<TpProcess> processes;
     int runs = 0;
-    public static final String CONTROL_AREA_DOMAIN = "10YCH-SWISSGRIDZ";
 
     @PostConstruct
     public void init() {

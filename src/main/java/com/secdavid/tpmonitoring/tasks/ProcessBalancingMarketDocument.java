@@ -16,7 +16,7 @@ public class ProcessBalancingMarketDocument extends ProcessDocument {
     }
 
     private DefaultMarketDocument parse(InputStream is) throws Exception {
-       return BalancingParser.parseDocument(is);
+        return BalancingParser.parseDocument(is);
     }
 
 }

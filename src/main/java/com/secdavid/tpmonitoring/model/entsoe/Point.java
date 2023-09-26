@@ -12,16 +12,16 @@ public class Point {
         return position;
     }
 
-    public void setDate(ZonedDateTime date) {
-        this.date = date;
+    public void setPosition(int position) {
+        this.position = position;
     }
 
     public ZonedDateTime getDate() {
         return date;
     }
 
-    public void setPosition(int position) {
-        this.position = position;
+    public void setDate(ZonedDateTime date) {
+        this.date = date;
     }
 
     public Double getQuantity() {

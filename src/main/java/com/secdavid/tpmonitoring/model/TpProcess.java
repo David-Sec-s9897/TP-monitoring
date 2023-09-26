@@ -1,7 +1,6 @@
 package com.secdavid.tpmonitoring.model;
 
 import com.secdavid.tpmonitoring.enums.Category;
-import com.secdavid.tpmonitoring.model.entsoe.Period;
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
 import com.secdavid.tpmonitoring.model.entsoe.TimeSeries;
 
@@ -9,13 +8,13 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class TpProcess {
-    private String name;
+    private final String name;
 
-    private Category category;
+    private final Category category;
 
-    private MasterData masterData;
+    private final MasterData masterData;
 
-    private List<TimeSeries> timeSeriesList = new ArrayList<>();
+    private final List<TimeSeries> timeSeriesList = new ArrayList<>();
 
     private List<TimeInterval> availableTimeIntervals = new ArrayList<>();
 

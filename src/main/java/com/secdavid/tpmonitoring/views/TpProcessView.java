@@ -17,11 +17,10 @@ import java.util.stream.Collectors;
 @ViewScoped
 public class TpProcessView implements Serializable {
 
-    private List<TpProcess> processes;
-    private List<TpProcess> filteredProcesses;
-
     @Inject
     TPProcessService service;
+    private List<TpProcess> processes;
+    private List<TpProcess> filteredProcesses;
 
     @PostConstruct
     public void init() {
