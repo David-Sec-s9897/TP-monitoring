@@ -3,11 +3,15 @@ package com.secdavid.tpmonitoring.views;
 import com.secdavid.tpmonitoring.model.TpProcess;
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
 import com.secdavid.tpmonitoring.services.TPProcessService;
+import com.secdavid.tpmonitoring.util.DateTimeUtils;
 import com.secdavid.tpmonitoring.util.TimeSeriesUtils;
 import jakarta.annotation.PostConstruct;
+import jakarta.faces.application.FacesMessage;
+import jakarta.faces.context.FacesContext;
 import jakarta.faces.view.ViewScoped;
 import jakarta.inject.Inject;
 import jakarta.inject.Named;
+import org.primefaces.event.timeline.TimelineSelectEvent;
 import org.primefaces.model.timeline.TimelineEvent;
 import org.primefaces.model.timeline.TimelineModel;
 
@@ -81,6 +85,12 @@ public class CustomTimelineView implements Serializable {
                 .group(group)
                 .styleClass("unavailable")
                 .build();
+    }
+
+    public void onSelect(TimelineSelectEvent<String> e) {
+        TimelineEvent<String> timelineEvent = e.getTimelineEvent();
+        FacesContext facesContext = FacesContext.getCurrentInstance();
+        facesContext.addMessage(null, new FacesMessage(FacesMessage.SEVERITY_INFO, "select", timelineEvent.getData() + ": " + timelineEvent.getStartDate().format(DateTimeUtils.getISOFormatter()) + " - " + timelineEvent.getEndDate().format(DateTimeUtils.getISOFormatter())));
     }
 
     public TimelineModel<String, ?> getModel() {

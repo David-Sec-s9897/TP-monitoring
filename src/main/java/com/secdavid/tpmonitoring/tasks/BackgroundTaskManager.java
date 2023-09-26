@@ -1,6 +1,7 @@
 package com.secdavid.tpmonitoring.tasks;
 
 import com.secdavid.tpmonitoring.entsoe.EntsoeRestClient;
+import com.secdavid.tpmonitoring.mail.MailService;
 import com.secdavid.tpmonitoring.model.TpProcess;
 import com.secdavid.tpmonitoring.model.entsoe.DefaultMarketDocument;
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
@@ -30,6 +31,10 @@ public class BackgroundTaskManager {
 
     @Inject
     EntsoeRestClient restClient;
+
+    @Inject
+    MailService mailService;
+
 
 
     @Schedule(hour = "*", minute = "*/30", info = "Every 30 minutes timer")
@@ -77,6 +82,13 @@ public class BackgroundTaskManager {
         }
         processService.inrementRuns();
         LOGGER.log(Level.INFO, "Process information download finished.");
+    }
+
+
+    //@Schedule(hour = "*", minute = "*/1", info = "Every 1 minutes timer")
+    public void sendMail() {
+        System.out.println("tryToSendMail");
+        mailService.send("david.sec@uhk.cz", "Jboss test", "Lorem Ipsum");
     }
 
 

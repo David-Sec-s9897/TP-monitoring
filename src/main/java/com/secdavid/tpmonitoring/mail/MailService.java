@@ -2,10 +2,7 @@ package com.secdavid.tpmonitoring.mail;
 
 import jakarta.annotation.Resource;
 import jakarta.ejb.Stateless;
-import jakarta.mail.Message;
-import jakarta.mail.MessagingException;
-import jakarta.mail.Session;
-import jakarta.mail.Transport;
+import jakarta.mail.*;
 import jakarta.mail.internet.InternetAddress;
 import jakarta.mail.internet.MimeMessage;
 
@@ -26,6 +23,7 @@ public class MailService {
         try {
             final Message message = new MimeMessage(session);
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(addresses));
+            message.setFrom(InternetAddress.parse("3084-2665-1@plus4u.net")[0]);
             message.setSubject(subject);
             message.setText(text);
 

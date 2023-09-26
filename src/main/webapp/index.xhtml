@@ -69,8 +69,12 @@
 
     </h:head>
     <h:body>
-
         <h:form>
+
+            <p:growl id="growl" showSummary="true" showDetail="true" keepAlive="true" life="3000">
+                <p:autoUpdate />
+            </p:growl>
+
             <p:timeline id="timeline" value="#{customTimelineView.model}"
                         editable="true" eventMargin="10" eventMarginAxis="0"
                         start="#{customTimelineView.start}"
@@ -82,7 +86,7 @@
                     <p:commandButton type="button" icon="pi pi-search-minus" onclick="PF('timelineWdgt').zoom(-0.5);"/>
                     <p:commandButton type="button" icon="pi pi-search-plus" onclick="PF('timelineWdgt').zoom(0.5);"/>
                 </f:facet>
-
+                <p:ajax event="select" listener="#{customTimelineView.onSelect}"/>
                 <f:facet name="loading">
                     <i class="pi pi-spin pi-spinner" style="font-size: 3em"></i>
                 </f:facet>
