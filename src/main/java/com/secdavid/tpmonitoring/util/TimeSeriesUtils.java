@@ -7,6 +7,7 @@ import com.secdavid.tpmonitoring.model.entsoe.TimeSeries;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 public class TimeSeriesUtils {
@@ -94,5 +95,21 @@ public class TimeSeriesUtils {
 
     private static boolean canBeMerged(TimeInterval first, TimeInterval second) {
         return !first.end.isBefore(second.start);
+    }
+
+    public static String buildEmailText(Map<String, List<TimeInterval>> missingTimeIntervalsMap){
+        StringBuilder text = new StringBuilder();
+        text.append("<table width='100%' border='1' align='center'>"
+                + "<tr align='center'>"
+                + "<td><b>Process Name <b></td>"
+                + "<td><b>Missing Time Intervals<b></td>"
+                + "</tr>");
+
+        for (Map.Entry entry : missingTimeIntervalsMap.entrySet()) {
+            System.out.println(entry.getKey() + " :" + entry.getValue());
+            text.append("<tr align='center'>"+"<td>" + entry.getKey() + "</td>"
+                    + "<td>" + entry.getValue() + "</td>"+"</tr>");
+        }
+        return text.toString();
     }
 }
