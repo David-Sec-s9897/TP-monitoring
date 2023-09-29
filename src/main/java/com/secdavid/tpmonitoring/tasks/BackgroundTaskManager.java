@@ -16,9 +16,13 @@ import jakarta.inject.Inject;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import static com.secdavid.tpmonitoring.util.TimeSeriesUtils.buildEmailText;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.BEAN)
@@ -34,6 +38,10 @@ public class BackgroundTaskManager {
 
     @Inject
     MailService mailService;
+
+    private static Map<String, List<TimeInterval>> missingTimeIntervalsMap = new HashMap<>();
+
+    private static  Map<String, List<TimeInterval>> lastIterationMissingIntervalsMap = new HashMap<>();
 
 
     @Schedule(hour = "*", minute = "*/30", info = "Every 30 minutes timer")
@@ -68,9 +76,14 @@ public class BackgroundTaskManager {
                         LOGGER.log(Level.SEVERE, String.format("Process %s has unsupported category %s", process.getName(), process.getCategory()));
                         break;
                 }
-                if (receivedDocument != null) {
+                if( receivedDocument != null){
                     List<TimeInterval> data = receivedDocument.getTimeSeries().stream().map(timeSeries -> timeSeries.getPeriod().getTimeInterval()).toList();
                     process.setAvailableTimeIntervals(TimeSeriesUtils.mergeTimeIntervals(process.getAvailableTimeIntervals(), data));
+
+                    if (process.getAvailableTimeIntervals().size() > 1) {
+                        missingTimeIntervalsMap.put(process.getName(), TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals()));
+
+                    }
                 }
 
             } catch (Exception e) {
@@ -78,6 +91,13 @@ public class BackgroundTaskManager {
                 e.printStackTrace();
             }
             Thread.sleep(10000);
+        }
+
+        if(!missingTimeIntervalsMap.entrySet().stream().allMatch(e -> e.getValue().equals(lastIterationMissingIntervalsMap.get(e.getKey())))){
+            sendMail();
+            buildEmailText(missingTimeIntervalsMap);
+            lastIterationMissingIntervalsMap.clear();
+            lastIterationMissingIntervalsMap = missingTimeIntervalsMap;
         }
         processService.inrementRuns();
         LOGGER.log(Level.INFO, "Process information download finished.");
@@ -87,8 +107,7 @@ public class BackgroundTaskManager {
     //@Schedule(hour = "*", minute = "*/1", info = "Every 1 minutes timer")
     public void sendMail() {
         System.out.println("tryToSendMail");
-        mailService.send("david.sec@uhk.cz", "Jboss test", "Lorem Ipsum");
+        mailService.send("david.sec@uhk.cz", "Jboss test", buildEmailText(missingTimeIntervalsMap));
     }
-
 
 }
