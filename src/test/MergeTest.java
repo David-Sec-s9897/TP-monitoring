@@ -27,7 +27,7 @@ public class MergeTest {
     public void mergeTimeIntervalsHDSTest(){
         String[] intervals = new String[]{"2023-09-20T22:00Z","2023-09-21T22:00Z","2023-09-21T22:00Z", "2023-09-22T22:00Z", "2023-09-22T22:00Z", "2023-09-23T22:00Z", "2023-09-23T22:00Z", "2023-09-24T22:00Z", "2023-09-24T22:00Z", "2023-09-25T22:00Z"};
         List<TimeInterval> timeIntervals = generateTimeIntervals(intervals);
-        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals, 0);
+        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals);
 
         Assert.assertEquals(1, mergedTI.size());
         Assert.assertEquals("2023-09-20T22:00Z", mergedTI.get(0).start.toString());
@@ -47,7 +47,7 @@ public class MergeTest {
     public void mergeTimeIntervalsHDSTestOverlappingIntervals(){
         String[] intervals = new String[]{"2023-09-20T22:00Z","2023-09-25T22:00Z", "2023-09-24T22:00Z", "2023-09-25T22:00Z", "2023-09-24T22:00Z", "2023-09-26T22:00Z"};
         List<TimeInterval> timeIntervals = generateTimeIntervals(intervals);
-        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals, 0);
+        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals);
 
         Assert.assertEquals(1, mergedTI.size());
         Assert.assertEquals("2023-09-20T22:00Z", mergedTI.get(0).start.toString());
@@ -68,7 +68,7 @@ public class MergeTest {
     public void mergeTimeIntervalsTest2Intervals(){
         String[] intervals = new String[]{"2023-09-20T22:00Z","2023-09-21T22:00Z","2023-09-21T22:00Z", "2023-09-22T22:00Z", "2023-09-22T22:00Z", "2023-09-23T22:00Z", "2023-09-23T22:00Z", "2023-09-24T22:00Z", "2023-09-24T22:00Z", "2023-09-25T22:00Z", "2023-09-25T23:00Z", "2023-09-26T22:00Z"};
         List<TimeInterval> timeIntervals = generateTimeIntervals(intervals);
-        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals, 0);
+        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals);
 
         Assert.assertEquals(2, mergedTI.size());
         Assert.assertEquals("2023-09-20T22:00Z", mergedTI.get(0).start.toString());
@@ -97,7 +97,7 @@ public class MergeTest {
     public void mergeTimeIntervalsTest3IntervalsMiddle(){
         String[] intervals = new String[]{"2023-09-20T22:00Z","2023-09-21T22:00Z","2023-09-21T23:00Z", "2023-09-22T22:00Z", "2023-09-22T22:00Z", "2023-09-23T22:00Z", "2023-09-23T22:00Z", "2023-09-24T22:00Z", "2023-09-24T22:00Z", "2023-09-25T22:00Z", "2023-09-25T23:00Z", "2023-09-26T22:00Z"};
         List<TimeInterval> timeIntervals = generateTimeIntervals(intervals);
-        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals, 0);
+        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals);
 
         Assert.assertEquals(3, mergedTI.size());
 
@@ -127,7 +127,7 @@ public class MergeTest {
     public void mergeTimeIntervalAllSubsequentIntervals(){
         String[] intervals = new String[]{"2023-09-20T22:00Z","2023-09-21T22:00Z","2023-09-21T23:00Z", "2023-09-22T22:00Z", "2023-09-22T23:00Z", "2023-09-23T22:00Z", "2023-09-23T23:00Z", "2023-09-24T22:00Z", "2023-09-24T23:00Z", "2023-09-25T22:00Z", "2023-09-25T23:00Z", "2023-09-26T22:00Z"};
         List<TimeInterval> timeIntervals = generateTimeIntervals(intervals);
-        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals, 0);
+        List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(timeIntervals);
 
         Assert.assertEquals(6, mergedTI.size());
 
@@ -172,6 +172,12 @@ public class MergeTest {
         List<TimeInterval> mergedTI = TimeSeriesUtils.mergeTimeIntervals(one);
         mergedTI = TimeSeriesUtils.mergeTimeIntervals(mergedTI, two,three,four, five);
         Assert.assertEquals(2, mergedTI.size());
+    }
+
+    @Test
+    public void stackOverflowTest() throws Exception {
+        List<TimeInterval> timeIntervals = loadTimeIntervals("stackOverFlowTestFile.xml");
+        TimeSeriesUtils.mergeTimeIntervals(timeIntervals);
     }
 
     private List<TimeInterval> loadTimeIntervals(String s) throws Exception {
