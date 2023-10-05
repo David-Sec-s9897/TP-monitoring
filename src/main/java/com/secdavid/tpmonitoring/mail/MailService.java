@@ -26,7 +26,7 @@ public class MailService {
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(addresses));
             message.setFrom(InternetAddress.parse("3084-2665-1@plus4u.net")[0]);
             message.setSubject(subject);
-            message.setText(text);
+            message.setContent(text,"text/html; charset=utf-8");
 
             Transport.send(message);
             LOGGER.log(Level.INFO, "Email send.");

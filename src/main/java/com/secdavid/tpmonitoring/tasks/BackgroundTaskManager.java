@@ -6,6 +6,7 @@ import com.secdavid.tpmonitoring.model.TpProcess;
 import com.secdavid.tpmonitoring.model.entsoe.DefaultMarketDocument;
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
 import com.secdavid.tpmonitoring.services.TPProcessService;
+import com.secdavid.tpmonitoring.util.EmailUtils;
 import com.secdavid.tpmonitoring.util.TimeSeriesUtils;
 import jakarta.ejb.Schedule;
 import jakarta.ejb.Stateless;
@@ -21,8 +22,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
-import static com.secdavid.tpmonitoring.util.TimeSeriesUtils.buildEmailText;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.BEAN)
@@ -95,7 +94,6 @@ public class BackgroundTaskManager {
 
         if(!missingTimeIntervalsMap.entrySet().stream().allMatch(e -> e.getValue().equals(lastIterationMissingIntervalsMap.get(e.getKey())))){
             sendMail();
-            buildEmailText(missingTimeIntervalsMap);
             lastIterationMissingIntervalsMap.clear();
             lastIterationMissingIntervalsMap = missingTimeIntervalsMap;
         }
@@ -107,7 +105,7 @@ public class BackgroundTaskManager {
     //@Schedule(hour = "*", minute = "*/1", info = "Every 1 minutes timer")
     public void sendMail() {
         System.out.println("tryToSendMail");
-        mailService.send("david.sec@uhk.cz", "Jboss test", buildEmailText(missingTimeIntervalsMap));
+        mailService.send("david.sec@uhk.cz", "Jboss test", EmailUtils.buildEmailText(missingTimeIntervalsMap));
     }
 
 }
