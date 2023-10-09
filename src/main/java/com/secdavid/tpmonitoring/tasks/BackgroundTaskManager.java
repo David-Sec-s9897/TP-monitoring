@@ -14,12 +14,11 @@ import jakarta.ejb.TransactionManagement;
 import jakarta.ejb.TransactionManagementType;
 import jakarta.inject.Inject;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -28,6 +27,7 @@ import java.util.logging.Logger;
 public class BackgroundTaskManager {
 
     public static final Logger LOGGER = Logger.getLogger(BackgroundTaskManager.class.getName());
+    private String recipients = System.getProperty("tp.mail.recipients");
 
     @Inject
     TPProcessService processService;
@@ -38,9 +38,8 @@ public class BackgroundTaskManager {
     @Inject
     MailService mailService;
 
-    private static Map<String, List<TimeInterval>> missingTimeIntervalsMap = new HashMap<>();
-
-    private static  Map<String, List<TimeInterval>> lastIterationMissingIntervalsMap = new HashMap<>();
+    @Inject
+    MissingIntervalsService missingIntervalsService;
 
 
     @Schedule(hour = "*", minute = "*/30", info = "Every 30 minutes timer")
@@ -75,13 +74,12 @@ public class BackgroundTaskManager {
                         LOGGER.log(Level.SEVERE, String.format("Process %s has unsupported category %s", process.getName(), process.getCategory()));
                         break;
                 }
-                if( receivedDocument != null){
+                if (receivedDocument != null) {
                     List<TimeInterval> data = receivedDocument.getTimeSeries().stream().map(timeSeries -> timeSeries.getPeriod().getTimeInterval()).toList();
                     process.setAvailableTimeIntervals(TimeSeriesUtils.mergeTimeIntervals(process.getAvailableTimeIntervals(), data));
 
                     if (process.getAvailableTimeIntervals().size() > 1) {
-                        missingTimeIntervalsMap.put(process.getName(), TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals()));
-
+                        missingIntervalsService.addToMissingIntervals(process.getName(), TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals()));
                     }
                 }
 
@@ -89,23 +87,36 @@ public class BackgroundTaskManager {
                 LOGGER.log(Level.SEVERE, "Process failed: {0}", process);
                 e.printStackTrace();
             }
-            Thread.sleep(10000);
+            Thread.sleep(5000);
         }
 
-        if(!missingTimeIntervalsMap.entrySet().stream().allMatch(e -> e.getValue().equals(lastIterationMissingIntervalsMap.get(e.getKey())))){
-            sendMail();
-            lastIterationMissingIntervalsMap.clear();
-            lastIterationMissingIntervalsMap = missingTimeIntervalsMap;
-        }
+
         processService.inrementRuns();
         LOGGER.log(Level.INFO, "Process information download finished.");
     }
 
-
-    //@Schedule(hour = "*", minute = "*/1", info = "Every 1 minutes timer")
-    public void sendMail() {
-        System.out.println("tryToSendMail");
-        mailService.send("david.sec@uhk.cz", "Jboss test", EmailUtils.buildEmailText(missingTimeIntervalsMap));
+    @Schedule(minute = "05", hour = "9", info = "Every day at 11:05AM")
+    public void generateReportMail() {
+        if (missingIntervalsService.areSomeNewIntervals()) {
+            mailService.send(getAddresses(), getSubject(), EmailUtils.buildEmailText(missingIntervalsService.getMissingTimeIntervalsMap()));
+            missingIntervalsService.updateLastMissingIntervals();
+        } else {
+            mailService.send(getAddresses(), getSubject(), "<h1>Everything is up to date :-)</h1>");
+        }
     }
+
+    private String getSubject() {
+        return String.format("TP-monitoring report (%s)", LocalDate.now().minusDays(1));
+    }
+
+
+    private String getAddresses() {
+        if (recipients.isEmpty()) {
+            LOGGER.log(Level.SEVERE, "Could not load list of recipients from properties.");
+            return "david.sec@uhk.cz";
+        }
+        return recipients;
+    }
+
 
 }

@@ -21,6 +21,7 @@ public class MailService {
     private Session session;
 
     public void send(final String addresses, final String subject, final String text) {
+        System.out.println("sending email to: " + addresses +" subject "+ subject);
         try {
             final Message message = new MimeMessage(session);
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(addresses));
