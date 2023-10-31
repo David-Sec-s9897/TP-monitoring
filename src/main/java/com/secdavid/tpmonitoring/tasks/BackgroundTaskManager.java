@@ -13,6 +13,7 @@ import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionManagement;
 import jakarta.ejb.TransactionManagementType;
 import jakarta.inject.Inject;
+import org.checkerframework.checker.units.qual.Time;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -21,6 +22,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.stream.Collectors;
 
 @Stateless
 @TransactionManagement(TransactionManagementType.BEAN)
@@ -49,7 +51,22 @@ public class BackgroundTaskManager {
         ZonedDateTime start = end.minusDays(processService.getRuns() > 0 ? 1 : 5);
 
 
-        for (TpProcess process : processes) {
+        for(TpProcess process: processes){
+            loadProcessData(process, end, start);
+            Thread.sleep(5000);
+
+            List<TimeInterval> intervalsToRepeat = missingIntervalsService.loadMissingIntervalsBeforeDate(process.getName(), start);
+            for (TimeInterval timeInterval: intervalsToRepeat){
+                LOGGER.log(Level.INFO, "Reloading missing interval for process: {0} and interval from: {1} to: {2}", new Object[] {process.getName(), timeInterval.start, timeInterval.end});
+                loadProcessData(process, timeInterval.start, timeInterval.end);
+                Thread.sleep(5000);
+            }
+        }
+        processService.inrementRuns();
+        LOGGER.log(Level.INFO, "Process information download finished.");
+    }
+
+    private void loadProcessData(TpProcess process, ZonedDateTime end, ZonedDateTime start) {
             try {
                 DefaultMarketDocument receivedDocument = null;
 
@@ -87,15 +104,9 @@ public class BackgroundTaskManager {
                 LOGGER.log(Level.SEVERE, "Process failed: {0}", process);
                 e.printStackTrace();
             }
-            Thread.sleep(5000);
-        }
-
-
-        processService.inrementRuns();
-        LOGGER.log(Level.INFO, "Process information download finished.");
     }
 
-    @Schedule(minute = "05", hour = "9", info = "Every day at 11:05AM")
+    @Schedule(minute = "05", hour = "9", timezone = "Europe/Prague", info = "Every day at 11:05AM")
     public void generateReportMail() {
         if (missingIntervalsService.areSomeNewIntervals()) {
             mailService.send(getAddresses(), getSubject(), EmailUtils.buildEmailText(missingIntervalsService.getMissingTimeIntervalsMap()));
