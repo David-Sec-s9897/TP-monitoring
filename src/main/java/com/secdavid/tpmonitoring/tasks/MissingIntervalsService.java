@@ -1,13 +1,12 @@
 package com.secdavid.tpmonitoring.tasks;
 
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
-import jakarta.ejb.Stateless;
-
+import jakarta.ejb.Singleton;
 import java.time.ZonedDateTime;
 import java.util.*;
 import java.util.stream.Collectors;
 
-@Stateless
+@Singleton
 public class MissingIntervalsService {
 
     private Map<String, List<TimeInterval>> missingTimeIntervalsMap = new HashMap<>();
