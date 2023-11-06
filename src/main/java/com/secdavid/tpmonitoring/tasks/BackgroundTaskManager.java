@@ -52,7 +52,7 @@ public class BackgroundTaskManager {
 
 
         for(TpProcess process: processes){
-            loadProcessData(process, end, start);
+            loadProcessData(process, start, end);
             Thread.sleep(5000);
 
             List<TimeInterval> intervalsToRepeat = missingIntervalsService.loadMissingIntervalsBeforeDate(process.getName(), start);
@@ -66,7 +66,7 @@ public class BackgroundTaskManager {
         LOGGER.log(Level.INFO, "Process information download finished.");
     }
 
-    private void loadProcessData(TpProcess process, ZonedDateTime end, ZonedDateTime start) {
+    private void loadProcessData(TpProcess process, ZonedDateTime start, ZonedDateTime end) {
             try {
                 DefaultMarketDocument receivedDocument = null;
 
