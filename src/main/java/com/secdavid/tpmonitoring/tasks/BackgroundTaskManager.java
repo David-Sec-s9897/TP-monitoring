@@ -106,7 +106,7 @@ public class BackgroundTaskManager {
             }
     }
 
-    @Schedule(minute = "05", hour = "9", timezone = "Europe/Prague", info = "Every day at 11:05AM")
+    @Schedule(minute = "05", hour = "11", timezone = "Europe/Prague", info = "Every day at 11:05AM")
     public void generateReportMail() {
         if (missingIntervalsService.areSomeNewIntervals()) {
             mailService.send(getAddresses(), getSubject(), EmailUtils.buildEmailText(missingIntervalsService.getMissingTimeIntervalsMap()));

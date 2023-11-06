@@ -13,7 +13,7 @@ public class MissingIntervalsService {
 
     private Map<String, List<TimeInterval>> lastIterationMissingIntervalsMap = new HashMap<>();
     public static final String ignoredIntervals = System.getProperty("tp.missingIntervals.ignoreList");
-    List<String> ignoredIntervalsList = ignoredIntervals.isBlank()? new ArrayList<>():Arrays.stream(ignoredIntervals.split(",")).toList();
+    List<String> ignoredIntervalsList = getIgnoredIntervals();
 
 
     public void addToMissingIntervals(String processName, List<TimeInterval> missingIntervals) {
@@ -52,6 +52,15 @@ public class MissingIntervalsService {
      * @return
      */
     public List<TimeInterval> loadMissingIntervalsBeforeDate(String processName, ZonedDateTime startDate) {
-        return getMissingTimeIntervalsMap().get(processName).stream().filter(timeInterval -> !timeInterval.getStart().isAfter(startDate)).collect(Collectors.toList());
+        List<TimeInterval> processTimeIntervals = missingTimeIntervalsMap.get(processName);
+        if (processTimeIntervals != null){
+            return processTimeIntervals.stream().filter(timeInterval -> !timeInterval.getStart().isAfter(startDate)).collect(Collectors.toList());
+        }
+        return new ArrayList<>();
+    }
+
+    private List<String> getIgnoredIntervals() {
+        return (ignoredIntervals== null || ignoredIntervals.isBlank())?
+                new ArrayList<>():Arrays.stream(ignoredIntervals.split(",")).toList();
     }
 }
