@@ -4,8 +4,11 @@ import com.secdavid.tpmonitoring.enums.Category;
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
 import com.secdavid.tpmonitoring.model.entsoe.TimeSeries;
 
+import java.time.LocalDateTime;
+import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class TpProcess {
     private final String name;
@@ -42,6 +45,13 @@ public class TpProcess {
 
     public List<TimeInterval> getAvailableTimeIntervals() {
         return availableTimeIntervals;
+    }
+
+    public Optional<TimeInterval> getLastTimeInterval() {
+        if (availableTimeIntervals.isEmpty()){
+            return Optional.empty();
+        }
+        return Optional.of(availableTimeIntervals.get(availableTimeIntervals.size()-1));
     }
 
     public void setAvailableTimeIntervals(List<TimeInterval> availableTimeIntervals) {

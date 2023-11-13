@@ -108,10 +108,12 @@ public class BackgroundTaskManager {
 
     @Schedule(minute = "05", hour = "11", timezone = "Europe/Prague", info = "Every day at 11:05AM")
     public void generateReportMail() {
-        if (missingIntervalsService.areSomeNewIntervals()) {
-            mailService.send(getAddresses(), getSubject(), EmailUtils.buildEmailText(missingIntervalsService.getMissingTimeIntervalsMap()));
+        if (!missingIntervalsService.getMissingTimeIntervalsMapFilterIgnored().isEmpty()) {
+            mailService.send(getAddresses(), getSubject(), EmailUtils.buildUnavailabilityEmailText(missingIntervalsService.getMissingTimeIntervalsMap()));
             missingIntervalsService.updateLastMissingIntervals();
+
         } else {
+            EmailUtils.buildSummaryEmailText(processService.getProcesses());
             mailService.send(getAddresses(), getSubject(), "<h1>Everything is up to date :-)</h1>");
         }
     }

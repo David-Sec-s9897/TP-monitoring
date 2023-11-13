@@ -24,6 +24,11 @@ public class MissingIntervalsService {
         return missingTimeIntervalsMap;
     }
 
+    public Map<String, List<TimeInterval>> getMissingTimeIntervalsMapFilterIgnored() {
+        return missingTimeIntervalsMap.entrySet().stream().filter(e -> !ignoredIntervalsList.contains(e.getKey()))
+                .collect(Collectors.toMap(Map.Entry::getKey, Map.Entry::getValue));
+    }
+
     public void setMissingTimeIntervalsMap(Map<String, List<TimeInterval>> missingTimeIntervalsMap) {
         this.missingTimeIntervalsMap = missingTimeIntervalsMap;
     }

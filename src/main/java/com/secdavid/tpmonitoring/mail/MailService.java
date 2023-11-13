@@ -25,7 +25,7 @@ public class MailService {
         try {
             final Message message = new MimeMessage(session);
             message.setRecipients(Message.RecipientType.TO, InternetAddress.parse(addresses));
-            message.setFrom(InternetAddress.parse("3084-2665-1@plus4u.net")[0]);
+            message.setFrom(InternetAddress.parse("david.sec@unicorn.com")[0]);
             message.setSubject(subject);
             message.setContent(text,"text/html; charset=utf-8");
 
