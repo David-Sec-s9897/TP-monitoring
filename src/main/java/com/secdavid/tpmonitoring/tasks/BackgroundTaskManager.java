@@ -13,7 +13,6 @@ import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionManagement;
 import jakarta.ejb.TransactionManagementType;
 import jakarta.inject.Inject;
-import org.checkerframework.checker.units.qual.Time;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
@@ -22,7 +21,7 @@ import java.time.ZonedDateTime;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import java.util.stream.Collectors;
+
 
 @Stateless
 @TransactionManagement(TransactionManagementType.BEAN)
@@ -43,8 +42,10 @@ public class BackgroundTaskManager {
     @Inject
     MissingIntervalsService missingIntervalsService;
 
+    public static final int REPEAT_EVERY_MINUTES = 30;
 
-    @Schedule(hour = "*", minute = "*/30", info = "Every 30 minutes timer")
+
+    @Schedule(hour = "*", minute = "*/" + REPEAT_EVERY_MINUTES, info = "Every 30 minutes timer")
     public void load() throws InterruptedException {
         List<TpProcess> processes = processService.getProcesses();
         ZonedDateTime end = LocalDateTime.now().withHour(22).withMinute(0).withSecond(0).atZone(ZoneId.of("UTC"));
@@ -92,12 +93,14 @@ public class BackgroundTaskManager {
                         break;
                 }
                 if (receivedDocument != null) {
+                    process.setLastSync(ZonedDateTime.now());
                     List<TimeInterval> data = receivedDocument.getTimeSeries().stream().map(timeSeries -> timeSeries.getPeriod().getTimeInterval()).toList();
                     process.setAvailableTimeIntervals(TimeSeriesUtils.mergeTimeIntervals(process.getAvailableTimeIntervals(), data));
 
                     if (process.getAvailableTimeIntervals().size() > 1) {
-                        missingIntervalsService.addToMissingIntervals(process.getName(), TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals()));
+                        missingIntervalsService.addToMissingIntervals(process.getName(), TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals(), process.getLastSync()));
                     }
+
                 }
 
             } catch (Exception e) {
@@ -113,13 +116,12 @@ public class BackgroundTaskManager {
             missingIntervalsService.updateLastMissingIntervals();
 
         } else {
-            EmailUtils.buildSummaryEmailText(processService.getProcesses());
-            mailService.send(getAddresses(), getSubject(), "<h1>Everything is up to date :-)</h1>");
+            mailService.send(getAddresses(), getSubject(), EmailUtils.buildSummaryEmailText(processService.getProcesses()));
         }
     }
 
     private String getSubject() {
-        return String.format("TP-monitoring report (%s)", LocalDate.now().minusDays(1));
+        return String.format("TP-monitoring report (%s)", LocalDate.now());
     }
 
 

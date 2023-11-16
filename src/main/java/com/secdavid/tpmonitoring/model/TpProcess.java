@@ -4,7 +4,6 @@ import com.secdavid.tpmonitoring.enums.Category;
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
 import com.secdavid.tpmonitoring.model.entsoe.TimeSeries;
 
-import java.time.LocalDateTime;
 import java.time.ZonedDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,6 +19,8 @@ public class TpProcess {
     private final List<TimeSeries> timeSeriesList = new ArrayList<>();
 
     private List<TimeInterval> availableTimeIntervals = new ArrayList<>();
+
+    private ZonedDateTime lastSync;
 
     public TpProcess(String name, Category category, MasterData masterData) {
         this.name = name;
@@ -56,6 +57,14 @@ public class TpProcess {
 
     public void setAvailableTimeIntervals(List<TimeInterval> availableTimeIntervals) {
         this.availableTimeIntervals = availableTimeIntervals;
+    }
+
+    public ZonedDateTime getLastSync() {
+        return lastSync;
+    }
+
+    public void setLastSync(ZonedDateTime lastSync) {
+        this.lastSync = lastSync;
     }
 
     @Override

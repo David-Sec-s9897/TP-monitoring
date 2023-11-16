@@ -3,8 +3,10 @@ package com.secdavid.tpmonitoring.util;
 import com.secdavid.tpmonitoring.model.entsoe.Point;
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
 import com.secdavid.tpmonitoring.model.entsoe.TimeSeries;
+import com.secdavid.tpmonitoring.tasks.BackgroundTaskManager;
 
 import java.time.ZonedDateTime;
+import java.time.temporal.ChronoUnit;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -76,21 +78,37 @@ public class TimeSeriesUtils {
         return mergeTimeIntervals(result.stream().sorted().collect(Collectors.toList()));
     }
 
-    public static List<TimeInterval> getMissingIntervals(List<TimeInterval> mergedTimeIntervals) {
+    public static List<TimeInterval> getMissingIntervals(List<TimeInterval> mergedTimeIntervals, ZonedDateTime expectedEnd) {
         List<TimeInterval> missingIntervals = new ArrayList<>();
-        for (int i = 0; i < mergedTimeIntervals.size() - 1; i++) {
-            TimeInterval first = mergedTimeIntervals.get(i);
-            TimeInterval second = mergedTimeIntervals.get(i + 1);
-            if (!canBeMerged(first, second)) {
+        if(mergedTimeIntervals.size() > 1) {
+            for (int i = 0; i < mergedTimeIntervals.size() - 1; i++) {
+                TimeInterval first = mergedTimeIntervals.get(i);
+                TimeInterval second = mergedTimeIntervals.get(i + 1);
+                if (!canBeMerged(first, second)) {
+                    TimeInterval missing = new TimeInterval();
+                    missing.setStart(first.end);
+                    missing.setEnd(second.start);
+                    missingIntervals.add(missing);
+                }
+            }
+        }
+        missingIntervals.addAll(checkForMissingData(mergedTimeIntervals, expectedEnd));
+        return missingIntervals;
+    }
+
+    private static List<TimeInterval> checkForMissingData(List<TimeInterval> mergedTimeIntervals, ZonedDateTime expectedEnd){
+        List<TimeInterval> missingIntervals = new ArrayList<>();
+        if(!mergedTimeIntervals.isEmpty()) {
+            TimeInterval lastTimeInterval = mergedTimeIntervals.get(mergedTimeIntervals.size() - 1);
+            if (lastTimeInterval.getEnd().plus(BackgroundTaskManager.REPEAT_EVERY_MINUTES, ChronoUnit.MINUTES).isBefore(expectedEnd)) {
                 TimeInterval missing = new TimeInterval();
-                missing.setStart(first.end);
-                missing.setEnd(second.start);
+                missing.setStart(lastTimeInterval.getEnd());
+                missing.setEnd(expectedEnd);
                 missingIntervals.add(missing);
             }
         }
         return missingIntervals;
     }
-
 
     private static boolean canBeMerged(TimeInterval first, TimeInterval second) {
         return !first.end.isBefore(second.start);
