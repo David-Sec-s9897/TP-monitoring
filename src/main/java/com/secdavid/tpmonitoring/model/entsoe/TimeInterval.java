@@ -7,6 +7,15 @@ public class TimeInterval implements Comparable<TimeInterval> {
     public ZonedDateTime start;
     public ZonedDateTime end;
 
+
+    public TimeInterval(){
+    }
+
+    public TimeInterval(ZonedDateTime start, ZonedDateTime end) {
+        this.start = start;
+        this.end = end;
+    }
+
     public ZonedDateTime getStart() {
         return start;
     }

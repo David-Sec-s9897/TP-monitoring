@@ -54,7 +54,7 @@ public class CustomTimelineView implements Serializable {
                 model.add(event);
             }
             if (process.getAvailableTimeIntervals() != null) {
-                List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals(), process.getLastSync());
+                List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals(), process.getMissingDataTolerance());
                 for (TimeInterval missing : missingIntervals) {
                     TimelineEvent event = buildUnAvailableTimeLineEvents(missing.start, missing.end, process.getName());
                     model.add(event);

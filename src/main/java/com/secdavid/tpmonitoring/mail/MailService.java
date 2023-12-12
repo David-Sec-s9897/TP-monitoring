@@ -1,5 +1,6 @@
 package com.secdavid.tpmonitoring.mail;
 
+import com.secdavid.tpmonitoring.util.EmailUtils;
 import jakarta.annotation.Resource;
 import jakarta.ejb.Stateless;
 import jakarta.mail.Message;

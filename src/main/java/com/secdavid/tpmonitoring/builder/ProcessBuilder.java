@@ -3,6 +3,7 @@ package com.secdavid.tpmonitoring.builder;
 import com.secdavid.tpmonitoring.enums.Category;
 import com.secdavid.tpmonitoring.model.MasterData;
 import com.secdavid.tpmonitoring.model.TpProcess;
+import com.secdavid.tpmonitoring.model.entsoe.MissingDataTolerance;
 
 public class ProcessBuilder {
 
@@ -17,6 +18,8 @@ public class ProcessBuilder {
     public String outArea;
     public String inArea;
     public String outDomain;
+    public MissingDataTolerance tolerance;
+
 
     public ProcessBuilder() {
 
@@ -77,10 +80,16 @@ public class ProcessBuilder {
         return this;
     }
 
+    public ProcessBuilder tolerance(MissingDataTolerance tolerance){
+        this.tolerance = tolerance;
+        return this;
+    }
+
     public TpProcess build() {
         MasterData masterData = new MasterData(documentType, controlAreaDomain, businessType, balancingDirection, processType, productionType, inArea, outArea, outDomain);
 
         TpProcess tpProcess = new TpProcess(name, category, masterData);
+        tpProcess.setTolerance(tolerance);
         return tpProcess;
     }
 }

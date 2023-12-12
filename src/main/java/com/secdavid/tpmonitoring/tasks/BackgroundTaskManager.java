@@ -19,6 +19,7 @@ import java.time.LocalDateTime;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 import java.util.List;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -50,7 +51,6 @@ public class BackgroundTaskManager {
         List<TpProcess> processes = processService.getProcesses();
         ZonedDateTime end = LocalDateTime.now().withHour(22).withMinute(0).withSecond(0).atZone(ZoneId.of("UTC"));
         ZonedDateTime start = end.minusDays(processService.getRuns() > 0 ? 1 : 5);
-
 
         for(TpProcess process: processes){
             loadProcessData(process, start, end);
@@ -98,7 +98,7 @@ public class BackgroundTaskManager {
                     process.setAvailableTimeIntervals(TimeSeriesUtils.mergeTimeIntervals(process.getAvailableTimeIntervals(), data));
 
                     if (process.getAvailableTimeIntervals().size() > 1) {
-                        missingIntervalsService.addToMissingIntervals(process.getName(), TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals(), process.getLastSync()));
+                        missingIntervalsService.addToMissingIntervals(process.getName(), TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals(), process.getMissingDataTolerance()));
                     }
 
                 }
@@ -111,10 +111,10 @@ public class BackgroundTaskManager {
 
     @Schedule(minute = "05", hour = "11", timezone = "Europe/Prague", info = "Every day at 11:05AM")
     public void generateReportMail() {
-        if (!missingIntervalsService.getMissingTimeIntervalsMapFilterIgnored().isEmpty()) {
+        Map<String, List<TimeInterval>> missingIntervalsMap = missingIntervalsService.getMissingTimeIntervalsMapFilterIgnored();
+        if (!missingIntervalsMap.isEmpty()) {
             mailService.send(getAddresses(), getSubject(), EmailUtils.buildUnavailabilityEmailText(missingIntervalsService.getMissingTimeIntervalsMap()));
             missingIntervalsService.updateLastMissingIntervals();
-
         } else {
             mailService.send(getAddresses(), getSubject(), EmailUtils.buildSummaryEmailText(processService.getProcesses()));
         }
@@ -126,12 +126,18 @@ public class BackgroundTaskManager {
 
 
     private String getAddresses() {
-        if (recipients.isEmpty()) {
+        if (getRecipients().isEmpty()) {
             LOGGER.log(Level.SEVERE, "Could not load list of recipients from properties.");
             return "david.sec@uhk.cz";
         }
         return recipients;
     }
 
+    public String getRecipients() {
+        return recipients;
+    }
 
+    public void setRecipients(String recipients) {
+        this.recipients = recipients;
+    }
 }

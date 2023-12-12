@@ -77,7 +77,7 @@ public class MergeTest {
         Assert.assertEquals("2023-09-25T23:00Z", mergedTI.get(1).start.toString());
         Assert.assertEquals("2023-09-26T22:00Z", mergedTI.get(1).end.toString());
 
-        List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(mergedTI);
+        List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(mergedTI, mergedTI.get(1).end);
         Assert.assertEquals(1, missingIntervals.size());
         Assert.assertEquals("2023-09-25T22:00Z", missingIntervals.get(0).start.toString());
         Assert.assertEquals("2023-09-25T23:00Z", missingIntervals.get(0).end.toString());
@@ -101,7 +101,7 @@ public class MergeTest {
 
         Assert.assertEquals(3, mergedTI.size());
 
-        List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(mergedTI);
+        List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(mergedTI, mergedTI.get(2).end);
         Assert.assertEquals(2, missingIntervals.size());
         Assert.assertEquals("2023-09-21T22:00Z", missingIntervals.get(0).start.toString());
         Assert.assertEquals("2023-09-21T23:00Z", missingIntervals.get(0).end.toString());
@@ -131,7 +131,7 @@ public class MergeTest {
 
         Assert.assertEquals(6, mergedTI.size());
 
-        List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(mergedTI);
+        List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(mergedTI, mergedTI.get(5).end);
         Assert.assertEquals(5, missingIntervals.size());
         Assert.assertEquals("2023-09-21T22:00Z", missingIntervals.get(0).start.toString());
         Assert.assertEquals("2023-09-21T23:00Z", missingIntervals.get(0).end.toString());

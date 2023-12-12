@@ -12,7 +12,7 @@ public class EmailUtils {
     public static final String ICON_NOT_OK = new String(Character.toChars(0x274C));
     public static final String ICON_UNKNOWN = new String(Character.toChars(0x2754));
 
-    public static String buildUnavailabilityEmailText(Map<String, List<TimeInterval>> missingTimeIntervalsMap){
+    public static String buildUnavailabilityEmailText(Map<String, List<TimeInterval>> missingTimeIntervalsMap) {
         StringBuilder text = new StringBuilder();
         text.append("<h1>Transparency portal list of missing intervals</h1>" +
                 "<table width='100%' border='1' align='center'>"
@@ -22,14 +22,17 @@ public class EmailUtils {
                 + "</tr>");
 
         for (Map.Entry<String, List<TimeInterval>> entry : missingTimeIntervalsMap.entrySet()) {
-            System.out.println(entry.getKey() + " :" + entry.getValue());
-            text.append("<tr align='center'>"+"<td>" + entry.getKey() + "</td>"
-                    + "<td>" + entry.getValue().stream().map(timeInterval -> timeInterval.start  + " - " + timeInterval.end).collect(Collectors.joining(","))+ "</td>"+"</tr>");
+            text.append("<tr align='center'>" + "<td>" + entry.getKey() + "</td>"
+                    + "<td>" + entry.getValue().stream().map(timeInterval ->
+                            DateTimeUtils.getHumanReadableFormatFormat().format(timeInterval.start)
+                                    + " - " +
+                                    DateTimeUtils.getHumanReadableFormatFormat().format(timeInterval.end))
+                    .collect(Collectors.joining(",<br/> ")) + "</td>" + "</tr>");
         }
         return text.toString();
     }
 
-    public static String buildSummaryEmailText(List<TpProcess> tpProcessList){
+    public static String buildSummaryEmailText(List<TpProcess> tpProcessList) {
         StringBuilder text = new StringBuilder();
         text.append("<h1>Transparency portal availability report</h1>" +
                 "<table width='100%' border='1' align='center'>"
@@ -39,10 +42,10 @@ public class EmailUtils {
                 + "</tr>");
 
         for (TpProcess tpProcess : tpProcessList) {
-            String status = (tpProcess.getLastTimeInterval().isPresent())? tpProcess.getLastTimeInterval().get().start.toString() : "no data";
-            String icon = status.equals("no data")? ICON_UNKNOWN: ICON_OK;
-            text.append("<tr align='center'>"+"<td>" + tpProcess.getName() + "</td>"
-                    + "<td>" + String.format("%s (%s)", icon, status) + "</td>"+"</tr>");
+            String status = (tpProcess.getLastTimeInterval().isPresent()) ? tpProcess.getLastTimeInterval().get().start.toString() : "no data";
+            String icon = status.equals("no data") ? ICON_UNKNOWN : ICON_OK;
+            text.append("<tr align='center'>" + "<td>" + tpProcess.getName() + "</td>"
+                    + "<td>" + String.format("%s (%s)", icon, status) + "</td>" + "</tr>");
         }
         return text.toString();
     }
