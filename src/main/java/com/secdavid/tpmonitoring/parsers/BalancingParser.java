@@ -1,6 +1,7 @@
 package com.secdavid.tpmonitoring.parsers;
 
 import com.secdavid.tpmonitoring.model.entsoe.*;
+import com.secdavid.tpmonitoring.parsers.exceptions.DocumentParseException;
 import com.secdavid.tpmonitoring.util.DateTimeUtils;
 import jakarta.ejb.Stateless;
 import jakarta.ejb.TransactionManagement;

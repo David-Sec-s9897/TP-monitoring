@@ -5,6 +5,7 @@ import com.secdavid.tpmonitoring.model.entsoe.MissingDataTolerance;
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
 import com.secdavid.tpmonitoring.model.entsoe.TimeSeries;
 
+import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-public class TpProcess {
+public class TpProcess implements Serializable {
     private final String name;
 
     private final Category category;

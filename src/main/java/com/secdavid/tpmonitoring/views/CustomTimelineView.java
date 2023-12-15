@@ -65,7 +65,8 @@ public class CustomTimelineView implements Serializable {
 
     private TimelineEvent buildAvailableTimeLineEvent(ZonedDateTime start, ZonedDateTime end, String name) {
         return TimelineEvent.builder()
-                .data(String.format("Available %s - %s", start.toString(), end.toString()))
+                .data(String.format("Available %s - %s", DateTimeUtils.getHumanReadableFormatFormat().format(start),
+                        DateTimeUtils.getHumanReadableFormatFormat().format(end)))
                 .startDate(start.toLocalDateTime())
                 .endDate(end.toLocalDateTime())
                 .editable(false)
@@ -76,7 +77,6 @@ public class CustomTimelineView implements Serializable {
 
 
     private TimelineEvent buildUnAvailableTimeLineEvents(ZonedDateTime start, ZonedDateTime end, String group) {
-        System.out.println("Unavailable created");
         return TimelineEvent.builder()
                 .data(String.format("Unavailable %s - %s", start.toString(), end.toString()))
                 .startDate(start.toLocalDateTime())

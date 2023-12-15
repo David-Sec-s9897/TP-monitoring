@@ -89,7 +89,7 @@ public class BackgroundTaskManager {
                         receivedDocument = processLoad.process(process.getMasterData(), start, end);
                         break;
                     default:
-                        LOGGER.log(Level.SEVERE, String.format("Process %s has unsupported category %s", process.getName(), process.getCategory()));
+                        LOGGER.log(Level.SEVERE, "Process {0} has unsupported category {1}", new Object[]{process.getName(), process.getCategory()});
                         break;
                 }
                 if (receivedDocument != null) {

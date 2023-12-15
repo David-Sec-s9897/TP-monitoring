@@ -42,7 +42,9 @@ public class EmailUtils {
                 + "</tr>");
 
         for (TpProcess tpProcess : tpProcessList) {
-            String status = (tpProcess.getLastTimeInterval().isPresent()) ? tpProcess.getLastTimeInterval().get().start.toString() : "no data";
+            String status = (tpProcess.getLastTimeInterval().isPresent()) ?
+                    DateTimeUtils.getHumanReadableFormatFormat().format(tpProcess.getLastTimeInterval().get().getEnd()) :
+                    "no data";
             String icon = status.equals("no data") ? ICON_UNKNOWN : ICON_OK;
             text.append("<tr align='center'>" + "<td>" + tpProcess.getName() + "</td>"
                     + "<td>" + String.format("%s (%s)", icon, status) + "</td>" + "</tr>");
