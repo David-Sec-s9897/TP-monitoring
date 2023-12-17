@@ -52,68 +52,80 @@ public class BackgroundTaskManager {
         ZonedDateTime end = LocalDateTime.now().withHour(22).withMinute(0).withSecond(0).atZone(ZoneId.of("UTC"));
         ZonedDateTime start = end.minusDays(processService.getRuns() > 0 ? 1 : 5);
 
-        for(TpProcess process: processes){
+        for (TpProcess process : processes) {
             loadProcessData(process, start, end);
             Thread.sleep(5000);
 
-            List<TimeInterval> intervalsToRepeat = missingIntervalsService.loadMissingIntervalsBeforeDate(process.getName(), start);
-            for (TimeInterval timeInterval: intervalsToRepeat){
-                LOGGER.log(Level.INFO, "Reloading missing interval for process: {0} and interval from: {1} to: {2}", new Object[] {process.getName(), timeInterval.start, timeInterval.end});
-                loadProcessData(process, timeInterval.start, timeInterval.end);
-                Thread.sleep(5000);
-            }
+            reloadMissingIntervalsForProcess(process);
         }
         processService.inrementRuns();
         LOGGER.log(Level.INFO, "Process information download finished.");
     }
 
-    private void loadProcessData(TpProcess process, ZonedDateTime start, ZonedDateTime end) {
-            try {
-                DefaultMarketDocument receivedDocument = null;
-
-                switch (process.getCategory()) {
-                    case BALANCING:
-                        ProcessBalancingMarketDocument processBalancing = new ProcessBalancingMarketDocument(restClient);
-                        receivedDocument = processBalancing.process(process.getMasterData(), start, end);
-                        break;
-                    case TRANSMISSION:
-                        ProcessTransmissionMarketDocument processTransmission = new ProcessTransmissionMarketDocument(restClient);
-                        receivedDocument = processTransmission.process(process.getMasterData(), start, end);
-                        break;
-                    case GENERATION:
-                        ProcessGenerationMarketDocument processGeneration = new ProcessGenerationMarketDocument(restClient);
-                        receivedDocument = processGeneration.process(process.getMasterData(), start, end);
-                        break;
-                    case LOAD:
-                        ProcessLoadDocument processLoad = new ProcessLoadDocument(restClient);
-                        receivedDocument = processLoad.process(process.getMasterData(), start, end);
-                        break;
-                    default:
-                        LOGGER.log(Level.SEVERE, "Process {0} has unsupported category {1}", new Object[]{process.getName(), process.getCategory()});
-                        break;
-                }
-                if (receivedDocument != null) {
-                    process.setLastSync(ZonedDateTime.now());
-                    List<TimeInterval> data = receivedDocument.getTimeSeries().stream().map(timeSeries -> timeSeries.getPeriod().getTimeInterval()).toList();
-                    process.setAvailableTimeIntervals(TimeSeriesUtils.mergeTimeIntervals(process.getAvailableTimeIntervals(), data));
-
-                    if (process.getAvailableTimeIntervals().size() > 1) {
-                        missingIntervalsService.addToMissingIntervals(process.getName(), TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals(), process.getMissingDataTolerance()));
-                    }
-
-                }
-
-            } catch (Exception e) {
-                LOGGER.log(Level.SEVERE, "Process failed: {0}", process);
-                e.printStackTrace();
-            }
+    private void reloadMissingIntervalsForProcess(TpProcess process) throws InterruptedException {
+        List<TimeInterval> intervalsToRepeat = missingIntervalsService.loadMissingIntervalsBeforeDate(process.getName(), ZonedDateTime.now());
+        for (TimeInterval timeInterval : intervalsToRepeat) {
+            LOGGER.log(Level.INFO, "Reloading missing interval for process: {0} and interval from: {1} to: {2}", new Object[]{process.getName(), timeInterval.start, timeInterval.end});
+            loadProcessData(process, timeInterval.start, timeInterval.end);
+            Thread.sleep(5000);
+        }
     }
 
-    @Schedule(minute = "05", hour = "11", timezone = "Europe/Prague", info = "Every day at 11:05AM")
-    public void generateReportMail() {
+    private void reloadMissingIntervalsForAllProcesses() throws InterruptedException {
+        for (TpProcess process : processService.getProcesses()) {
+            reloadMissingIntervalsForProcess(process);
+        }
+    }
+
+    private void loadProcessData(TpProcess process, ZonedDateTime start, ZonedDateTime end) {
+        try {
+            DefaultMarketDocument receivedDocument = null;
+
+            switch (process.getCategory()) {
+                case BALANCING:
+                    ProcessBalancingMarketDocument processBalancing = new ProcessBalancingMarketDocument(restClient);
+                    receivedDocument = processBalancing.process(process.getMasterData(), start, end);
+                    break;
+                case TRANSMISSION:
+                    ProcessTransmissionMarketDocument processTransmission = new ProcessTransmissionMarketDocument(restClient);
+                    receivedDocument = processTransmission.process(process.getMasterData(), start, end);
+                    break;
+                case GENERATION:
+                    ProcessGenerationMarketDocument processGeneration = new ProcessGenerationMarketDocument(restClient);
+                    receivedDocument = processGeneration.process(process.getMasterData(), start, end);
+                    break;
+                case LOAD:
+                    ProcessLoadDocument processLoad = new ProcessLoadDocument(restClient);
+                    receivedDocument = processLoad.process(process.getMasterData(), start, end);
+                    break;
+                default:
+                    LOGGER.log(Level.SEVERE, "Process {0} has unsupported category {1}", new Object[]{process.getName(), process.getCategory()});
+                    break;
+            }
+            if (receivedDocument != null) {
+                process.setLastSync(ZonedDateTime.now());
+                List<TimeInterval> data = receivedDocument.getTimeSeries().stream().map(timeSeries -> timeSeries.getPeriod().getTimeInterval()).toList();
+                process.setAvailableTimeIntervals(TimeSeriesUtils.mergeTimeIntervals(process.getAvailableTimeIntervals(), data));
+
+                if (process.getAvailableTimeIntervals().size() > 1) {
+                    missingIntervalsService.addToMissingIntervals(process.getName(), TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals(), process.getMissingDataTolerance()));
+                }
+
+            }
+
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Process failed: {0}", process);
+            e.printStackTrace();
+        }
+    }
+
+    @Schedule(minute = "16", hour = "11", timezone = "Europe/Prague", info = "Every day at 11:05AM")
+    public void generateReportMail() throws InterruptedException {
+        reloadMissingIntervalsForAllProcesses();
         Map<String, List<TimeInterval>> missingIntervalsMap = missingIntervalsService.getMissingTimeIntervalsMapFilterIgnored();
         if (!missingIntervalsMap.isEmpty()) {
-            mailService.send(getAddresses(), getSubject(), EmailUtils.buildUnavailabilityEmailText(missingIntervalsService.getMissingTimeIntervalsMap()));
+
+            mailService.send(getAddresses(), getSubject(), EmailUtils.buildUnavailabilityEmailText(missingIntervalsMap));
             missingIntervalsService.updateLastMissingIntervals();
         } else {
             mailService.send(getAddresses(), getSubject(), EmailUtils.buildSummaryEmailText(processService.getProcesses()));

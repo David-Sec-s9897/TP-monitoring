@@ -47,7 +47,7 @@ public class BackgroundTaskManagerTest {
     }
 
     @Test
-    public void mailSummaryTest(){
+    public void mailSummaryTest() throws InterruptedException {
         Mockito.when(missingIntervalsService.getMissingTimeIntervalsMapFilterIgnored()).thenReturn(Collections.emptyMap());
         Mockito.when(processService.getProcesses()).thenReturn(processes);
         System.setProperty("tp.mail.recipients", "");
@@ -58,7 +58,7 @@ public class BackgroundTaskManagerTest {
     }
 
     @Test
-    public void mailMissingIntervalsTest(){
+    public void mailMissingIntervalsTest() throws InterruptedException {
         Map<String, List<TimeInterval>> timeIntervalMap = new HashMap<>();
         timeIntervalMap.put("Test1", List.of(new TimeInterval(ZonedDateTime.now().minusDays(1), ZonedDateTime.now()),
                 new TimeInterval(ZonedDateTime.now().minusDays(3), ZonedDateTime.now().minusDays(2))));

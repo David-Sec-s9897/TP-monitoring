@@ -5,6 +5,7 @@ import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
 import com.secdavid.tpmonitoring.services.TPProcessService;
 import com.secdavid.tpmonitoring.util.DateTimeUtils;
 import com.secdavid.tpmonitoring.util.TimeSeriesUtils;
+import com.secdavid.tpmonitoring.views.enums.TimelineEventType;
 import jakarta.annotation.PostConstruct;
 import jakarta.faces.application.FacesMessage;
 import jakarta.faces.context.FacesContext;
@@ -44,47 +45,19 @@ public class CustomTimelineView implements Serializable {
         model = new TimelineModel<>();
 
         for (TpProcess process : service.getProcesses()) {
-
-        }
-
-        for (TpProcess process : service.getProcesses()) {
-            Set<StartEndTime> set = new HashSet<>();
             for (TimeInterval ts : process.getAvailableTimeIntervals()) {
-                TimelineEvent event = buildAvailableTimeLineEvent(ts.start, ts.end, process.getName());
+                TimelineEvent event = buildTimeLineEvent(TimelineEventType.AVAILABLE, ts.start, ts.end, process.getName());
                 model.add(event);
             }
-            if (process.getAvailableTimeIntervals() != null) {
+            List<TimeInterval> availableTimeIntervals = process.getAvailableTimeIntervals();
+            if (availableTimeIntervals != null) {
                 List<TimeInterval> missingIntervals = TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals(), process.getMissingDataTolerance());
                 for (TimeInterval missing : missingIntervals) {
-                    TimelineEvent event = buildUnAvailableTimeLineEvents(missing.start, missing.end, process.getName());
+                    TimelineEvent event = buildTimeLineEvent(TimelineEventType.UNAVAILABLE, missing.start, missing.end, process.getName());
                     model.add(event);
                 }
             }
         }
-    }
-
-    private TimelineEvent buildAvailableTimeLineEvent(ZonedDateTime start, ZonedDateTime end, String name) {
-        return TimelineEvent.builder()
-                .data(String.format("Available %s - %s", DateTimeUtils.getHumanReadableFormatFormat().format(start),
-                        DateTimeUtils.getHumanReadableFormatFormat().format(end)))
-                .startDate(start.toLocalDateTime())
-                .endDate(end.toLocalDateTime())
-                .editable(false)
-                .group(name)
-                .styleClass("available")
-                .build();
-    }
-
-
-    private TimelineEvent buildUnAvailableTimeLineEvents(ZonedDateTime start, ZonedDateTime end, String group) {
-        return TimelineEvent.builder()
-                .data(String.format("Unavailable %s - %s", start.toString(), end.toString()))
-                .startDate(start.toLocalDateTime())
-                .endDate(end.toLocalDateTime())
-                .editable(false)
-                .group(group)
-                .styleClass("unavailable")
-                .build();
     }
 
     public void onSelect(TimelineSelectEvent<String> e) {
@@ -103,5 +76,18 @@ public class CustomTimelineView implements Serializable {
 
     public LocalDateTime getEnd() {
         return end;
+    }
+
+    private TimelineEvent<Object> buildTimeLineEvent(TimelineEventType timelineEventType, ZonedDateTime start, ZonedDateTime end, String name) {
+        return TimelineEvent.builder()
+                .data(String.format("%s %s - %s", timelineEventType.getName(),
+                        DateTimeUtils.getHumanReadableFormatFormat().format(start),
+                        DateTimeUtils.getHumanReadableFormatFormat().format(end)))
+                .startDate(start.toLocalDateTime())
+                .endDate(end.toLocalDateTime())
+                .editable(false)
+                .group(name)
+                .styleClass(timelineEventType.getStyleClass())
+                .build();
     }
 }
