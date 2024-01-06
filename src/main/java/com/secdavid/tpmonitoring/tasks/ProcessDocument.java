@@ -17,6 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Optional;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -30,11 +31,14 @@ public abstract class ProcessDocument {
     DateTimeFormatter formatter = DateTimeUtils.getEntsoeRequestDateFormat();
 
     public DefaultMarketDocument process(MasterData masterData, ZonedDateTime start, ZonedDateTime end) throws Exception {
-        InputStream is = callEntroe(masterData, start, end);
-        return parse(is, category);
+        Optional<InputStream> is = callEntroe(masterData, start, end);
+        if (is.isPresent()) {
+            return parse(is.get(), category);
+        }
+        else return null;
     }
 
-    private InputStream callEntroe(MasterData masterData, ZonedDateTime start, ZonedDateTime end) {
+    private Optional<InputStream> callEntroe(MasterData masterData, ZonedDateTime start, ZonedDateTime end) {
         Call<ResponseBody> call;
         String documentType = masterData.getDocumentType();
         switch (category) {
@@ -67,10 +71,10 @@ public abstract class ProcessDocument {
         try {
             Response<ResponseBody> response = call.execute();
             if (response.code() != 200) {
-                LOGGER.log(Level.SEVERE, "Code {}", response.code());
+                LOGGER.log(Level.SEVERE, String.format("Code %s \n %s", response.code(), response.body()));
                 return null;
             }
-            return response.body().byteStream();
+            return Optional.ofNullable(response.body().byteStream());
 
         } catch (IOException e) {
             e.printStackTrace();

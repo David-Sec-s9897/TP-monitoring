@@ -1,5 +1,6 @@
 package com.secdavid.tpmonitoring.util;
 
+import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class DateTimeUtils {
@@ -25,5 +26,19 @@ public class DateTimeUtils {
 
     public static DateTimeFormatter getHumanReadableFormatFormat() {
         return HUMAN_READABLE_FORMAT_FORMAT;
+    }
+
+    public static ZonedDateTime atStartOfHour(ZonedDateTime dateTime) {
+        return dateTime.minusMinutes(dateTime.getMinute());
+    }
+
+    public static ZonedDateTime atEndOfHour(ZonedDateTime dateTime) {
+        int minute = dateTime.getMinute();
+        if (minute == 0){
+            return dateTime;
+        }
+        else {
+            return atStartOfHour(dateTime).plusHours(1l);
+        }
     }
 }
