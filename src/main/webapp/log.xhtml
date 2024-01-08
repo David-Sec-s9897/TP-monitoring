@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<f:view contentType="text/html;charset=UTF-8" encoding="UTF-8">
+    <h:head>
+        <style type="text/css">
+        </style>
+
+    </h:head>
+    <h:body>
+        <h:form>
+
+            <p:growl id="growl" showSummary="true" showDetail="true" keepAlive="true" life="3000">
+                <p:autoUpdate />
+            </p:growl>
+
+            <p:dataTable id="processTable" value="#{logView.logRecordList}" var="logRecord" style="margin-top: 20px"
+                         widgetVar="logRecords" sortMode="multiple"
+                         rows="10" paginator="true"
+                         paginatorTemplate="{CurrentPageReport} {FirstPageLink} {PreviousPageLink} {PageLinks} {NextPageLink} {LastPageLink}"
+                         rowsPerPageTemplate="5,10,15" filteredValue="#{tpProcessView.filteredProcesses}">
+                <f:facet name="header">
+                    <p:outputPanel>
+                        <h:outputText value="Search all fields:"/>
+                        <p:inputText id="globalFilter" onkeyup="PF('processes').filter()" style="width:150px"
+                                     placeholder="Enter keyword"/>
+                    </p:outputPanel>
+                </f:facet>
+                <p:column headerText="Name" sortBy="#{logRecord.name}" filterBy="#{process.name}"
+                          filterMatchMode="contains">
+                    <h:outputText value="#{logRecord.name}"/>
+                </p:column>
+
+                <p:column headerText="DocumentType" sortBy="#{process.masterData.documentType}"
+                          filterBy="#{process.masterData.documentType}" filterMatchMode="contains">
+                    <h:outputText value="#{process.masterData.documentType}"/>
+                </p:column>
+
+                <p:column headerText="ProcessType" sortBy="#{process.masterData.processType}"
+                          filterBy="#{process.masterData.processType}" filterMatchMode="contains">
+                    <h:outputText value="#{process.masterData.processType}"/>
+                </p:column>
+
+                <p:column headerText="Category" sortBy="#{process.category}" filterMatchMode="exact"
+                          filterBy="#{process.category}">
+                    <f:facet name="filter">
+                        <p:selectOneMenu label="Category" onchange="PF('processes').filter()" scrollHeight="150">
+                            <f:selectItem itemLabel="Select One" itemValue="#{null}" noSelectionOption="true"/>
+                            <f:selectItems value="#{tpProcessView.categories}"/>
+                        </p:selectOneMenu>
+                    </f:facet>
+                    <h:outputText value="#{process.category}"/>
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</f:view>
+
+</html>

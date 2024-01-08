@@ -5,9 +5,13 @@ import com.secdavid.tpmonitoring.mail.MailService;
 import com.secdavid.tpmonitoring.model.TpProcess;
 import com.secdavid.tpmonitoring.model.entsoe.DefaultMarketDocument;
 import com.secdavid.tpmonitoring.model.entsoe.TimeInterval;
+import com.secdavid.tpmonitoring.model.logs.LogRecord;
+import com.secdavid.tpmonitoring.model.logs.LogRecordType;
+import com.secdavid.tpmonitoring.services.LogService;
 import com.secdavid.tpmonitoring.services.TPProcessService;
 import com.secdavid.tpmonitoring.util.DateTimeUtils;
 import com.secdavid.tpmonitoring.util.EmailUtils;
+import com.secdavid.tpmonitoring.util.LogRecordUtils;
 import com.secdavid.tpmonitoring.util.TimeSeriesUtils;
 import jakarta.ejb.Schedule;
 import jakarta.ejb.Stateless;
@@ -41,6 +45,9 @@ public class BackgroundTaskManager {
 
     @Inject
     MailService mailService;
+
+    @Inject
+    LogService logService;
 
     @Inject
     MissingIntervalsService missingIntervalsService;
@@ -105,14 +112,20 @@ public class BackgroundTaskManager {
                 process.setLastSync(ZonedDateTime.now());
                 List<TimeInterval> data = receivedDocument.getTimeSeries().stream().map(timeSeries -> timeSeries.getPeriod().getTimeInterval()).toList();
                 process.setAvailableTimeIntervals(TimeSeriesUtils.mergeTimeIntervals(process.getAvailableTimeIntervals(), data));
+                logService.persist(new LogRecord(LogRecordUtils.getLogRecordType(reload), process.getName(), process.getCategory(), "Loaded intervals"
+                        + data.stream()
+                        .map(timeInterval -> fromatTimeIntervalToString(timeInterval))
+                        .collect(Collectors.joining(",")),LogRecordUtils.getLoadedDataType(receivedDocument)));
 
                 if (process.getAvailableTimeIntervals().size() > 1) {
                     List<TimeInterval> missingIntervalsList = TimeSeriesUtils.getMissingIntervals(process.getAvailableTimeIntervals(), process.getMissingDataTolerance());
                     LOGGER.log(Level.WARNING, "Missing interval detected: Process name: {0}, intervals : {1} ", new Object[] {process.getName(), missingIntervalsList.stream()
-                            .map(timeInterval -> String.format("<%s - %s>",
-                                    DateTimeUtils.getHumanReadableFormatFormat().format(timeInterval.getStart()),
-                                    DateTimeUtils.getHumanReadableFormatFormat().format(timeInterval.getEnd())))
+                            .map(timeInterval -> fromatTimeIntervalToString(timeInterval))
                             .collect(Collectors.joining(","))});
+                    logService.persist(new LogRecord(LogRecordUtils.getLogRecordType(reload), process.getName(), process.getCategory(), "Missing interval detected: intervals : {0} "
+                            + data.stream()
+                            .map(timeInterval -> fromatTimeIntervalToString(timeInterval))
+                            .collect(Collectors.joining(",")),LogRecordUtils.getLoadedDataType(receivedDocument)));
                     missingIntervalsService.addToMissingIntervals(process.getName(), missingIntervalsList);
                 }
             }
@@ -166,5 +179,10 @@ public class BackgroundTaskManager {
 
     public void setRecipients(String recipients) {
         this.recipients = recipients;
+    }
+
+    private String fromatTimeIntervalToString(TimeInterval timeInterval) {
+        return String.format("<%s - %s>", DateTimeUtils.getHumanReadableFormatFormat().format(timeInterval.getStart()),
+                DateTimeUtils.getHumanReadableFormatFormat().format(timeInterval.getEnd()));
     }
 }
